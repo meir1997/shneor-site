@@ -510,6 +510,18 @@ body {
 .gallery-item.gallery-visible { display: block; animation: fadeInUp 0.4s ease backwards; }
 
 .gallery-actions { display: flex; justify-content: center; }
+#galleryToggle {
+    background: var(--primary) !important;
+    color: var(--white) !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 4px 14px rgba(26,68,128,0.25);
+}
+#galleryToggle:hover {
+    background: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26,68,128,0.35);
+}
 
 /* Gallery Lightbox */
 .gallery-lightbox {
