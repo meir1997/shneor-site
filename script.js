@@ -351,7 +351,7 @@ function submitContactForm(e) {
     form.reset();
 
     setTimeout(() => {
-        window.open(`https://wa.me/972XXXXXXXXX?text=${waText}`, '_blank');
+        window.open(`https://wa.me/972543407902?text=${waText}`, '_blank');
         setTimeout(() => {
             btn.style.display = 'flex';
             success.style.display = 'none';
