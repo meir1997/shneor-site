@@ -28,12 +28,13 @@
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <span class="hero-tag">פשוט לחנך · בלוג חינוך</span>
             <h1>שניאור רוכברגר</h1>
             <p class="hero-subtitle">מחנך, חוקר ויוזם חברתי</p>
             <p class="hero-desc">מוביל את תחום החינוך החברתי-ערכי בציבור החרדי, מייסד תנועת הנוער "אחווה" ויוצר קלפי "שיח"</p>
             <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">הכירו אותי</a>
-                <a href="#blog" class="btn btn-outline">קראו את הבלוג</a>
+                <a href="#blog" class="btn btn-primary">קראו את הבלוג</a>
+                <a href="#about" class="btn btn-outline">הכירו אותי</a>
             </div>
         </div>
     </section>
@@ -54,16 +55,16 @@
 
                     <div class="achievements">
                         <div class="achievement-card">
+                            <div class="achievement-number" id="blogCount">93+</div>
+                            <div class="achievement-label">טורי חינוך</div>
+                        </div>
+                        <div class="achievement-card">
                             <div class="achievement-number">15+</div>
                             <div class="achievement-label">סניפי תנועת אחווה</div>
                         </div>
                         <div class="achievement-card">
                             <div class="achievement-number">600+</div>
-                            <div class="achievement-label">ילדים בשנה הראשונה</div>
-                        </div>
-                        <div class="achievement-card">
-                            <div class="achievement-number">2</div>
-                            <div class="achievement-label">סמינרים להכשרת מורות</div>
+                            <div class="achievement-label">חניכים בשנה הראשונה</div>
                         </div>
                     </div>
                 </div>
@@ -111,18 +112,31 @@
             <h2 class="section-title">פשוט לחנך - הבלוג</h2>
             <p class="section-subtitle">טורים שבועיים על חינוך, הורות וערכים</p>
 
-            <div class="blog-filter">
-                <button class="filter-btn active" data-filter="all">הכל</button>
-                <button class="filter-btn" data-filter="chinuch">חינוך</button>
-                <button class="filter-btn" data-filter="horut">הורות</button>
-                <button class="filter-btn" data-filter="values">ערכים</button>
+            <div class="blog-controls">
+                <div class="blog-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <input type="search" id="blogSearch" placeholder="חיפוש במאמרים..." aria-label="חיפוש">
+                </div>
+                <div class="blog-filter">
+                    <button class="filter-btn active" data-filter="all">הכל</button>
+                    <button class="filter-btn" data-filter="chinuch">חינוך</button>
+                    <button class="filter-btn" data-filter="horut">הורות</button>
+                    <button class="filter-btn" data-filter="values">ערכים</button>
+                </div>
+            </div>
+
+            <div class="blog-results-info">
+                <span id="resultsCount"></span>
             </div>
 
             <div class="blog-grid" id="blogGrid">
                 <!-- Blog posts inserted by JS -->
             </div>
 
-            <button class="btn btn-primary load-more" id="loadMore">טען עוד מאמרים</button>
+            <button class="btn btn-primary load-more" id="loadMore">
+                טען עוד מאמרים
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
         </div>
     </section>
 

@@ -3,16 +3,22 @@ const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-// Close menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Navbar shadow on scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
 });
 
 // Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 100;
+    const scrollY = window.scrollY + 120;
     sections.forEach(section => {
         const top = section.offsetTop - 100;
         const height = section.offsetHeight;
@@ -27,33 +33,74 @@ window.addEventListener('scroll', () => {
 });
 
 // Blog rendering
-let visiblePosts = 6;
+const POSTS_PER_PAGE = 9;
+let visiblePosts = POSTS_PER_PAGE;
 let currentFilter = 'all';
+let currentSearch = '';
 const blogGrid = document.getElementById('blogGrid');
 const loadMoreBtn = document.getElementById('loadMore');
+const searchInput = document.getElementById('blogSearch');
+const resultsCount = document.getElementById('resultsCount');
 
-function renderBlog() {
-    const filtered = currentFilter === 'all'
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function getFiltered() {
+    let list = currentFilter === 'all'
         ? blogPosts
         : blogPosts.filter(p => p.category === currentFilter);
+    if (currentSearch) {
+        const q = currentSearch.toLowerCase();
+        list = list.filter(p =>
+            p.title.toLowerCase().includes(q) ||
+            (p.subtitle || '').toLowerCase().includes(q) ||
+            p.excerpt.toLowerCase().includes(q) ||
+            p.content.toLowerCase().includes(q)
+        );
+    }
+    return list;
+}
+
+function renderBlog() {
+    const filtered = getFiltered();
     const toShow = filtered.slice(0, visiblePosts);
 
-    blogGrid.innerHTML = toShow.map(post => `
-        <div class="blog-card" onclick="openBlogModal(${post.id})">
+    if (resultsCount) {
+        resultsCount.textContent = filtered.length === 1
+            ? 'מאמר אחד'
+            : `${filtered.length} מאמרים`;
+    }
+
+    if (toShow.length === 0) {
+        blogGrid.innerHTML = `
+            <div class="blog-empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <p>לא נמצאו מאמרים</p>
+                <span>נסו חיפוש אחר או בחרו קטגוריה אחרת</span>
+            </div>
+        `;
+        loadMoreBtn.style.display = 'none';
+        return;
+    }
+
+    blogGrid.innerHTML = toShow.map((post, idx) => `
+        <article class="blog-card" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
             <div class="blog-card-header">
-                <span class="blog-card-category">${post.categoryLabel}</span>
-                <h3>${post.title}</h3>
+                <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
+                <h3>${escapeHtml(post.title)}</h3>
+                ${post.subtitle ? `<p class="blog-card-subtitle">${escapeHtml(post.subtitle)}</p>` : ''}
             </div>
             <div class="blog-card-body">
-                <p>${post.excerpt}</p>
+                <p>${escapeHtml(post.excerpt)}</p>
             </div>
             <div class="blog-card-footer">
-                <span class="read-more">קראו עוד &larr;</span>
+                <span class="read-more">קראו עוד <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
             </div>
-        </div>
+        </article>
     `).join('');
 
-    loadMoreBtn.style.display = visiblePosts >= filtered.length ? 'none' : 'block';
+    loadMoreBtn.style.display = visiblePosts >= filtered.length ? 'none' : 'inline-flex';
 }
 
 // Filter buttons
@@ -62,15 +109,28 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentFilter = btn.dataset.filter;
-        visiblePosts = 6;
+        visiblePosts = POSTS_PER_PAGE;
         renderBlog();
     });
 });
 
 loadMoreBtn.addEventListener('click', () => {
-    visiblePosts += 6;
+    visiblePosts += POSTS_PER_PAGE;
     renderBlog();
 });
+
+// Search with debounce
+let searchTimeout;
+if (searchInput) {
+    searchInput.addEventListener('input', e => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearch = e.target.value.trim();
+            visiblePosts = POSTS_PER_PAGE;
+            renderBlog();
+        }, 200);
+    });
+}
 
 // Blog Modal
 function openBlogModal(id) {
@@ -85,18 +145,45 @@ function openBlogModal(id) {
         document.body.appendChild(modal);
     }
 
+    const paragraphs = post.content
+        .split('\n\n')
+        .map(p => p.trim())
+        .filter(Boolean)
+        .map(p => {
+            // Detect a heading-like short line (no period at end, short)
+            const isHeading = p.length < 80 && !p.includes('.') && !p.includes(',') && !p.includes('?') && !p.includes('!') && !p.includes(':');
+            const lines = p.split('\n').map(l => escapeHtml(l)).join('<br>');
+            return isHeading
+                ? `<h3 class="blog-section-heading">${lines}</h3>`
+                : `<p>${lines}</p>`;
+        })
+        .join('');
+
     modal.innerHTML = `
         <div class="blog-modal-content">
-            <button class="blog-modal-close" onclick="closeBlogModal()">&times;</button>
-            <span class="blog-card-category" style="margin-bottom:16px;display:inline-block">${post.categoryLabel}</span>
-            <h2>${post.title}</h2>
-            <div class="blog-full-text">${post.content.split('\n\n').map(p => '<p>' + p + '</p>').join('')}</div>
-            <p style="margin-top:24px;font-weight:600;color:var(--primary)">שניאור</p>
+            <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="סגור">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="blog-modal-meta">
+                <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
+            </div>
+            <h2>${escapeHtml(post.title)}</h2>
+            ${post.subtitle ? `<p class="blog-modal-subtitle">${escapeHtml(post.subtitle)}</p>` : ''}
+            <div class="blog-divider"></div>
+            <div class="blog-full-text">${paragraphs}</div>
+            <div class="blog-modal-author">
+                <div class="author-avatar">ש</div>
+                <div>
+                    <div class="author-name">שניאור רוכברגר</div>
+                    <div class="author-role">מחנך וחוקר</div>
+                </div>
+            </div>
         </div>
     `;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
 
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeBlogModal();
@@ -119,18 +206,19 @@ document.addEventListener('keydown', (e) => {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('revealed');
         }
     });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    section.classList.add('reveal');
     observer.observe(section);
 });
 
 // Init
 renderBlog();
+
+// Update stats on home with real count
+const blogCountEl = document.getElementById('blogCount');
+if (blogCountEl) blogCountEl.textContent = blogPosts.length + '+';
