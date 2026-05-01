@@ -326,37 +326,70 @@ document.addEventListener('keydown', e => {
     }
 });
 
-// Contact form
-function submitContactForm(e) {
+// Contact form – sends email via Web3Forms API
+async function submitContactForm(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
     const btn = form.querySelector('.form-submit');
 
-    // Simple WhatsApp fallback – opens WhatsApp with the form data
-    const name = document.getElementById('contactName').value;
-    const phone = document.getElementById('contactPhone').value;
+    const name    = document.getElementById('contactName').value.trim();
+    const phone   = document.getElementById('contactPhone').value.trim();
+    const email   = document.getElementById('contactEmail').value.trim();
     const subject = document.getElementById('contactSubject');
     const subjectText = subject.options[subject.selectedIndex].text;
-    const message = document.getElementById('contactMessage').value;
+    const message = document.getElementById('contactMessage').value.trim();
 
-    const waText = encodeURIComponent(
-        `שלום שניאור, שמי ${name}${phone ? ', מספרי ' + phone : ''}.\n` +
-        `נושא: ${subjectText !== 'בחר נושא...' ? subjectText : 'פנייה כללית'}\n\n${message}`
-    );
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
 
-    // Show success & open WhatsApp
-    btn.style.display = 'none';
-    success.style.display = 'flex';
-    form.reset();
+    const payload = {
+        access_key: 'WEB3FORMS_ACCESS_KEY',
+        subject: 'פנייה חדשה מהאתר – ' + (subjectText !== 'בחר נושא...' ? subjectText : 'כללי'),
+        from_name: name,
+        replyto: email || undefined,
+        message: [
+            'שם: ' + name,
+            phone   ? 'טלפון: ' + phone   : '',
+            email   ? 'אימייל: ' + email   : '',
+            'נושא: ' + (subjectText !== 'בחר נושא...' ? subjectText : 'כללי'),
+            '',
+            message
+        ].filter(Boolean).join('\n')
+    };
 
-    setTimeout(() => {
+    try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            btn.style.display = 'none';
+            success.style.display = 'flex';
+            form.reset();
+            setTimeout(() => {
+                btn.style.display = 'flex';
+                btn.disabled = false;
+                btn.style.opacity = '';
+                success.style.display = 'none';
+            }, 5000);
+        } else {
+            throw new Error(data.message || 'שגיאה');
+        }
+    } catch (err) {
+        console.error('Form error:', err);
+        // Fallback to WhatsApp if email fails
+        const waText = encodeURIComponent(
+            `שלום שניאור, שמי ${name}${phone ? ', מספרי ' + phone : ''}.\n` +
+            `נושא: ${subjectText !== 'בחר נושא...' ? subjectText : 'פנייה כללית'}\n\n${message}`
+        );
         window.open(`https://wa.me/972543407902?text=${waText}`, '_blank');
-        setTimeout(() => {
-            btn.style.display = 'flex';
-            success.style.display = 'none';
-        }, 4000);
-    }, 800);
+        btn.disabled = false;
+        btn.style.opacity = '';
+    }
 }
 
 // Init

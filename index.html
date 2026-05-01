@@ -351,6 +351,8 @@
                 </div>
 
                 <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                    <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+                    <input type="checkbox" name="botcheck" style="display:none">
                     <div class="form-group">
                         <label for="contactName">שם מלא</label>
                         <input type="text" id="contactName" name="name" placeholder="ישראל ישראלי" required>
