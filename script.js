@@ -230,40 +230,47 @@ document.querySelectorAll('.section').forEach(section => {
 let galleryExpanded = false;
 function toggleGallery() {
     galleryExpanded = !galleryExpanded;
-    const hidden = document.querySelectorAll('.gallery-hidden, .gallery-visible');
+    const allItems = document.querySelectorAll('.gallery-item');
     const btn = document.getElementById('galleryToggle');
 
+    allItems.forEach((el, i) => {
+        if (i >= 6) {
+            if (galleryExpanded) {
+                el.style.display = 'block';
+                el.style.animation = `fadeInUp 0.4s ease ${(i - 6) * 35}ms backwards`;
+            } else {
+                el.style.display = 'none';
+                el.style.animation = '';
+            }
+        }
+    });
+
     if (galleryExpanded) {
-        hidden.forEach((el, i) => {
-            el.classList.remove('gallery-hidden');
-            el.classList.add('gallery-visible');
-            el.style.animationDelay = (i * 40) + 'ms';
-        });
         btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> הסתר תמונות`;
     } else {
-        document.querySelectorAll('.gallery-item').forEach((el, i) => {
-            if (i >= 6) {
-                el.classList.remove('gallery-visible');
-                el.classList.add('gallery-hidden');
-            }
-        });
         btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> לכל התמונות (41)`;
         document.getElementById('social')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 }
 
-// Gallery lightbox
+// Gallery lightbox – use event delegation so it works for dynamically shown images
 let lightboxIndex = 0;
 const galleryImages = [];
 
 function initGalleryLightbox() {
-    document.querySelectorAll('.gallery-item').forEach((item, idx) => {
-        const img = item.querySelector('img');
-        if (img) {
-            galleryImages.push(img.src);
-            item.addEventListener('click', () => openLightbox(idx));
-        }
-    });
+    // Collect all image srcs
+    document.querySelectorAll('.gallery-item img').forEach(img => galleryImages.push(img.src));
+
+    // Event delegation on the grid container
+    const grid = document.getElementById('galleryGrid');
+    if (grid) {
+        grid.addEventListener('click', e => {
+            const item = e.target.closest('.gallery-item');
+            if (!item) return;
+            const items = Array.from(document.querySelectorAll('.gallery-item'));
+            openLightbox(items.indexOf(item));
+        });
+    }
 }
 
 function openLightbox(idx) {
