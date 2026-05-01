@@ -84,8 +84,13 @@ function renderBlog() {
         return;
     }
 
-    blogGrid.innerHTML = toShow.map((post, idx) => `
-        <article class="blog-card" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
+    blogGrid.innerHTML = toShow.map((post, idx) => {
+        const illus = (typeof blogIllustrations !== 'undefined' && blogIllustrations[post.id])
+            ? `<div class="blog-card-illustration">${blogIllustrations[post.id]}</div>`
+            : '';
+        return `
+        <article class="blog-card${illus ? ' has-illustration' : ''}" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
+            ${illus}
             <div class="blog-card-header">
                 <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
                 <h3>${escapeHtml(post.title)}</h3>
@@ -97,8 +102,8 @@ function renderBlog() {
             <div class="blog-card-footer">
                 <span class="read-more">קראו עוד <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
             </div>
-        </article>
-    `).join('');
+        </article>`;
+    }).join('');
 
     loadMoreBtn.style.display = visiblePosts >= filtered.length ? 'none' : 'inline-flex';
 }
@@ -159,11 +164,16 @@ function openBlogModal(id) {
         })
         .join('');
 
+    const modalIllus = (typeof blogIllustrations !== 'undefined' && blogIllustrations[post.id])
+        ? `<div class="blog-modal-illustration">${blogIllustrations[post.id]}</div>`
+        : '';
+
     modal.innerHTML = `
         <div class="blog-modal-content">
             <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="סגור">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
+            ${modalIllus}
             <div class="blog-modal-meta">
                 <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
             </div>

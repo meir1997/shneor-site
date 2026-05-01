@@ -266,9 +266,31 @@ body {
     box-shadow: var(--shadow-lg);
     border-color: var(--primary-light);
 }
+
+/* Blog card illustration */
+.blog-card-illustration {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+    line-height: 0;
+    flex-shrink: 0;
+}
+.blog-card-illustration svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.blog-card:hover .blog-card-illustration svg {
+    transform: scale(1.03);
+}
+
 .blog-card-header {
     padding: 24px 24px 14px;
     background: linear-gradient(180deg, var(--bg-alt) 0%, transparent 100%);
+}
+.blog-card.has-illustration .blog-card-header {
+    background: transparent;
 }
 .blog-card-category {
     display: inline-block; padding: 4px 14px; border-radius: 999px;
@@ -336,9 +358,24 @@ body {
     position: absolute; top: 18px; left: 18px; background: var(--bg-alt);
     border: none; cursor: pointer; color: var(--text);
     width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; transition: var(--transition);
+    border-radius: 50%; transition: var(--transition); z-index: 1;
 }
 .blog-modal-close:hover { background: var(--primary); color: var(--white); transform: rotate(90deg); }
+
+/* Modal illustration */
+.blog-modal-illustration {
+    margin: -56px -56px 32px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
+    line-height: 0;
+}
+.blog-modal-illustration svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 200px;
+}
+
 .blog-modal-meta { margin-bottom: 16px; }
 .blog-modal-content h2 {
     font-size: 1.9rem; color: var(--primary-dark);
