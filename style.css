@@ -410,6 +410,151 @@ body {
 .author-name { font-weight: 700; color: var(--primary-dark); }
 .author-role { font-size: 0.85rem; color: var(--text-light); }
 
+/* Social Education Section */
+.social-section { background: var(--white); }
+
+.social-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 56px;
+}
+.social-intro-text h3 {
+    font-size: 1.5rem; font-weight: 800; color: var(--primary-dark);
+    margin-bottom: 20px; line-height: 1.35;
+}
+.social-intro-text p {
+    color: var(--text); line-height: 1.85; margin-bottom: 16px; font-size: 1.02rem;
+}
+.social-intro-text p:last-child { margin-bottom: 0; }
+
+.social-pillars { display: flex; flex-direction: column; gap: 18px; }
+.pillar-card {
+    background: var(--bg-alt); border-radius: var(--radius); padding: 22px 24px;
+    display: flex; align-items: flex-start; gap: 18px;
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+.pillar-card:hover { transform: translateX(-4px); box-shadow: var(--shadow); border-color: var(--primary-light); }
+.pillar-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: var(--primary); color: var(--white);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pillar-card h4 { font-size: 1rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 6px; }
+.pillar-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+
+/* Formal vs Social comparison */
+.social-vs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-bottom: 64px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+.vs-card {
+    padding: 36px 32px;
+}
+.vs-card.formal { background: var(--bg-alt); }
+.vs-card.social { background: var(--primary); color: var(--white); }
+.vs-card h4 {
+    font-size: 1.15rem; font-weight: 800; margin-bottom: 20px;
+    padding-bottom: 14px; border-bottom: 2px solid;
+}
+.vs-card.formal h4 { color: var(--primary-dark); border-color: var(--border); }
+.vs-card.social h4 { color: var(--white); border-color: rgba(255,255,255,0.25); }
+.vs-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.vs-card ul li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.95rem; line-height: 1.5;
+}
+.vs-card.formal ul li { color: var(--text); }
+.vs-card.social ul li { color: rgba(255,255,255,0.92); }
+.vs-card ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.vs-card.formal ul li::before { background: var(--text-muted); }
+.vs-card.social ul li::before { background: var(--accent); }
+.vs-divider {
+    background: var(--accent); display: flex; align-items: center; justify-content: center;
+    padding: 0 16px; writing-mode: vertical-rl; text-orientation: mixed;
+}
+.vs-divider span {
+    font-size: 0.82rem; font-weight: 700; color: var(--white);
+    letter-spacing: 2px; text-transform: uppercase;
+    writing-mode: horizontal-tb; white-space: nowrap;
+    transform: rotate(90deg);
+}
+
+/* Gallery */
+.social-gallery-header { text-align: center; margin-bottom: 32px; }
+.social-gallery-header h3 { font-size: 1.5rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 8px; }
+.social-gallery-header p { color: var(--text-light); font-size: 0.95rem; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+}
+.gallery-item { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
+.gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item.gallery-hidden { display: none; }
+.gallery-item.gallery-visible { display: block; animation: fadeInUp 0.4s ease backwards; }
+
+.gallery-actions { display: flex; justify-content: center; }
+
+/* Gallery Lightbox */
+.gallery-lightbox {
+    display: none; position: fixed; inset: 0; z-index: 3000;
+    background: rgba(10,20,40,0.92); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center;
+}
+.gallery-lightbox.active { display: flex; }
+.lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; }
+.lightbox-inner img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: var(--radius); }
+.lightbox-close {
+    position: fixed; top: 20px; left: 20px; background: rgba(255,255,255,0.15);
+    border: none; cursor: pointer; color: white; width: 44px; height: 44px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; transition: var(--transition);
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+.lightbox-nav {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.15); border: none; cursor: pointer; color: white;
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition);
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { right: 20px; }
+.lightbox-next { left: 20px; }
+.lightbox-counter {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.5); color: white; padding: 6px 16px;
+    border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+}
+
+/* Responsive social section */
+@media (max-width: 1024px) {
+    .social-intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 680px) {
+    .social-vs { grid-template-columns: 1fr; }
+    .vs-divider { padding: 12px; writing-mode: horizontal-tb; }
+    .vs-divider span { transform: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Shop */
 .shop-section { background: var(--bg-alt); }
 .shop-intro { max-width: 720px; margin: 0 auto 48px; text-align: center; }

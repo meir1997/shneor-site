@@ -226,8 +226,102 @@ document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
 
+// Gallery toggle
+let galleryExpanded = false;
+function toggleGallery() {
+    galleryExpanded = !galleryExpanded;
+    const hidden = document.querySelectorAll('.gallery-hidden, .gallery-visible');
+    const btn = document.getElementById('galleryToggle');
+
+    if (galleryExpanded) {
+        hidden.forEach((el, i) => {
+            el.classList.remove('gallery-hidden');
+            el.classList.add('gallery-visible');
+            el.style.animationDelay = (i * 40) + 'ms';
+        });
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> הסתר תמונות`;
+    } else {
+        document.querySelectorAll('.gallery-item').forEach((el, i) => {
+            if (i >= 6) {
+                el.classList.remove('gallery-visible');
+                el.classList.add('gallery-hidden');
+            }
+        });
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> לכל התמונות (41)`;
+        document.getElementById('social')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+}
+
+// Gallery lightbox
+let lightboxIndex = 0;
+const galleryImages = [];
+
+function initGalleryLightbox() {
+    document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+        const img = item.querySelector('img');
+        if (img) {
+            galleryImages.push(img.src);
+            item.addEventListener('click', () => openLightbox(idx));
+        }
+    });
+}
+
+function openLightbox(idx) {
+    lightboxIndex = idx;
+    let lb = document.getElementById('galleryLightbox');
+    if (!lb) {
+        lb = document.createElement('div');
+        lb.id = 'galleryLightbox';
+        lb.className = 'gallery-lightbox';
+        lb.innerHTML = `
+            <div class="lightbox-inner">
+                <img id="lightboxImg" src="" alt="תמונה">
+            </div>
+            <button class="lightbox-close" onclick="closeLightbox()" aria-label="סגור">✕</button>
+            <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)" aria-label="הבא">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)" aria-label="הקודם">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        `;
+        document.body.appendChild(lb);
+        lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    }
+    updateLightbox();
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+    const img = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    if (img) img.src = galleryImages[lightboxIndex];
+    if (counter) counter.textContent = `${lightboxIndex + 1} / ${galleryImages.length}`;
+}
+
+function lightboxNav(dir) {
+    lightboxIndex = (lightboxIndex + dir + galleryImages.length) % galleryImages.length;
+    updateLightbox();
+}
+
+function closeLightbox() {
+    const lb = document.getElementById('galleryLightbox');
+    if (lb) { lb.classList.remove('active'); document.body.style.overflow = ''; }
+}
+
+document.addEventListener('keydown', e => {
+    if (document.getElementById('galleryLightbox')?.classList.contains('active')) {
+        if (e.key === 'ArrowRight') lightboxNav(-1);
+        if (e.key === 'ArrowLeft') lightboxNav(1);
+        if (e.key === 'Escape') closeLightbox();
+    }
+});
+
 // Init
 renderBlog();
+initGalleryLightbox();
 
 // Update stats on home with real count
 const blogCountEl = document.getElementById('blogCount');
