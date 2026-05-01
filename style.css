@@ -64,7 +64,10 @@ body {
 }
 .logo {
     font-size: 1.35rem; font-weight: 800; color: var(--primary); text-decoration: none;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.3px; display: flex; align-items: center; gap: 10px;
+}
+.logo-icon {
+    width: 28px; height: 28px; stroke-width: 1.5; flex-shrink: 0;
 }
 .nav-links { list-style: none; display: flex; gap: 4px; }
 .nav-links a {
