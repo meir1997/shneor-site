@@ -248,7 +248,7 @@ function toggleGallery() {
     if (galleryExpanded) {
         btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> הסתר תמונות`;
     } else {
-        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> לכל התמונות (41)`;
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> לכל התמונות`;
         document.getElementById('social')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 }
@@ -325,6 +325,39 @@ document.addEventListener('keydown', e => {
         if (e.key === 'Escape') closeLightbox();
     }
 });
+
+// Contact form
+function submitContactForm(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    const btn = form.querySelector('.form-submit');
+
+    // Simple WhatsApp fallback – opens WhatsApp with the form data
+    const name = document.getElementById('contactName').value;
+    const phone = document.getElementById('contactPhone').value;
+    const subject = document.getElementById('contactSubject');
+    const subjectText = subject.options[subject.selectedIndex].text;
+    const message = document.getElementById('contactMessage').value;
+
+    const waText = encodeURIComponent(
+        `שלום שניאור, שמי ${name}${phone ? ', מספרי ' + phone : ''}.\n` +
+        `נושא: ${subjectText !== 'בחר נושא...' ? subjectText : 'פנייה כללית'}\n\n${message}`
+    );
+
+    // Show success & open WhatsApp
+    btn.style.display = 'none';
+    success.style.display = 'flex';
+    form.reset();
+
+    setTimeout(() => {
+        window.open(`https://wa.me/972XXXXXXXXX?text=${waText}`, '_blank');
+        setTimeout(() => {
+            btn.style.display = 'flex';
+            success.style.display = 'none';
+        }, 4000);
+    }, 800);
+}
 
 // Init
 renderBlog();

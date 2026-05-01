@@ -604,20 +604,79 @@ body {
 .price-original { font-size: 0.9rem; color: var(--text-muted); text-decoration: line-through; margin-right: 8px; }
 .shop-cta { text-align: center; }
 
+/* WhatsApp order button */
+.btn-whatsapp { background: #25d366 !important; border-color: #25d366 !important; box-shadow: 0 4px 14px rgba(37,211,102,0.3) !important; }
+.btn-whatsapp:hover { background: #1da851 !important; border-color: #1da851 !important; box-shadow: 0 8px 20px rgba(37,211,102,0.4) !important; }
+
 /* Contact */
-.contact-section { background: var(--white); }
-.contact-grid { max-width: 600px; margin: 0 auto; text-align: center; }
-.contact-info h3 { font-size: 1.5rem; color: var(--primary-dark); margin-bottom: 12px; font-weight: 700; }
-.contact-info p { color: var(--text-light); margin-bottom: 28px; font-size: 1.05rem; }
-.contact-links { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-.contact-link {
-    display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
-    color: var(--text); padding: 14px 28px; border-radius: 10px;
-    background: var(--bg-alt); transition: var(--transition); font-weight: 600;
-    border: 2px solid transparent;
+.contact-section { background: var(--bg-alt); }
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
 }
-.contact-link:hover { background: var(--primary); color: var(--white); border-color: var(--primary); transform: translateY(-2px); }
-.contact-icon { display: flex; }
+.contact-info h3 { font-size: 1.45rem; color: var(--primary-dark); margin-bottom: 14px; font-weight: 800; }
+.contact-info > p { color: var(--text-light); margin-bottom: 32px; font-size: 1rem; line-height: 1.75; }
+
+.contact-details { display: flex; flex-direction: column; gap: 16px; }
+.contact-detail-item { display: flex; align-items: flex-start; gap: 14px; }
+.contact-detail-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--primary); color: var(--white);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.contact-detail-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.contact-detail-value { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.98rem; }
+.contact-detail-value:hover { color: var(--accent); }
+
+/* Contact form */
+.contact-form {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+}
+.form-group { margin-bottom: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group label {
+    display: block; margin-bottom: 7px;
+    font-size: 0.88rem; font-weight: 700; color: var(--primary-dark);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%; padding: 12px 15px;
+    border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    font-family: 'Heebo', sans-serif; font-size: 0.95rem; color: var(--text);
+    background: var(--white); transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none; direction: rtl;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary); box-shadow: 0 0 0 3px rgba(26,68,128,0.1);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-muted); }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-group select { cursor: pointer; }
+.form-submit { width: 100%; justify-content: center; font-size: 1rem; padding: 15px; }
+.form-success {
+    margin-top: 16px; padding: 16px 20px;
+    background: #e8f5e9; border-radius: var(--radius-sm);
+    color: #2e7d32; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+    animation: fadeInUp 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+}
 
 /* Footer */
 .footer { background: var(--primary-dark); color: var(--white); padding: 56px 0 28px; }
