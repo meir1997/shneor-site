@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ניהול — שניאור רוכברגר</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --primary: #b78628;
+    --primary-dark: #8c6618;
+    --border: #e5e7eb;
+    --error: #dc2626;
+    --success: #059669;
+    --radius: 10px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Heebo', 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.55;
+  }
+
+  .login-card {
+    max-width: 380px;
+    margin: 120px auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .login-card h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  .login-card p { color: var(--text-light); margin-bottom: 22px; font-size: 0.92rem; }
+  .login-error { color: var(--error); font-size: 0.88rem; margin-top: 10px; display: none; }
+
+  .admin-wrap { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; }
+  .admin-title { text-align: center; margin-bottom: 6px; font-size: 1.6rem; }
+  .admin-subtitle { text-align: center; color: var(--text-light); margin-bottom: 32px; font-size: 0.92rem; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-weight: 600; margin-bottom: 6px;
+    color: var(--text); font-size: 0.95rem;
+  }
+  .form-group .hint { font-size: 0.82rem; color: var(--text-light); font-weight: 400; margin-right: 6px; }
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--card);
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(183,134,42,0.12);
+  }
+  .form-group textarea {
+    min-height: 320px;
+    resize: vertical;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  .form-group textarea#postExcerpt { min-height: 90px; font-size: 0.95rem; }
+
+  .actions-row {
+    display: flex; gap: 10px; justify-content: flex-end; margin-top: 24px; flex-wrap: wrap;
+  }
+  .btn {
+    padding: 10px 22px;
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover { background: var(--primary-dark); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn-secondary { background: #f3f4f6; color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: #e5e7eb; }
+  .btn-block { width: 100%; justify-content: center; }
+
+  .status-msg {
+    margin-top: 20px; padding: 12px 16px; border-radius: var(--radius);
+    font-size: 0.92rem; display: none;
+  }
+  .status-msg.success { background: #d1fae5; color: var(--success); display: block; }
+  .status-msg.error { background: #fee2e2; color: var(--error); display: block; }
+  .status-msg.info { background: #e0f2fe; color: #0369a1; display: block; }
+
+  .spinner {
+    width: 14px; height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Preview overlay */
+  .preview-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .preview-overlay.active { display: flex; }
+  .preview-modal {
+    background: white;
+    max-width: 700px; width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+  }
+  .preview-close {
+    position: absolute; top: 12px; left: 12px;
+    background: none; border: none; font-size: 1.6rem; cursor: pointer; color: var(--text-light);
+  }
+  .preview-modal .preview-cat {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
+  }
+  .preview-modal h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .preview-modal .preview-subtitle { color: var(--text-light); margin-bottom: 20px; font-size: 1rem; }
+  .preview-modal .preview-body p { margin-bottom: 14px; }
+  .preview-modal .preview-body h3 { font-size: 1.15rem; margin: 22px 0 8px; color: var(--primary-dark); }
+
+  @media (max-width: 600px) {
+    .admin-wrap { padding: 20px 14px 60px; }
+    .login-card { margin: 60px 16px; padding: 32px 22px; }
+    .actions-row { flex-direction: column-reverse; }
+    .actions-row .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="login-card">
+  <h2>ניהול</h2>
+  <p>הזן סיסמה כדי לפרסם פוסט חדש</p>
+  <div class="form-group" style="margin-bottom:14px;">
+    <input type="password" id="passwordInput" placeholder="סיסמה" autocomplete="off" />
+  </div>
+  <button class="btn btn-primary btn-block" id="loginBtn">כניסה</button>
+  <div class="login-error" id="loginError">סיסמה שגויה</div>
+</div>
+
+<!-- ADMIN -->
+<div id="adminPanel" style="display:none;">
+  <div class="admin-wrap">
+    <h1 class="admin-title">פרסום פוסט חדש</h1>
+    <p class="admin-subtitle">הפוסט יתפרסם ישירות באתר תוך כדקה</p>
+
+    <form id="postForm" autocomplete="off">
+
+      <div class="form-group">
+        <label for="postTitle">כותרת <span class="hint">(חובה)</span></label>
+        <input type="text" id="postTitle" required placeholder="כותרת הפוסט" />
+      </div>
+
+      <div class="form-group">
+        <label for="postSubtitle">כותרת משנה <span class="hint">(אופציונלי)</span></label>
+        <input type="text" id="postSubtitle" placeholder="הסבר קצר מתחת לכותרת" />
+      </div>
+
+      <div class="form-group">
+        <label for="postCategory">קטגוריה</label>
+        <select id="postCategory">
+          <option value="chinuch">חינוך</option>
+          <option value="horut">הורות</option>
+          <option value="values">ערכים</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="postContent">תוכן <span class="hint">(שורה ריקה = פסקה חדשה)</span></label>
+        <textarea id="postContent" required placeholder="כתוב כאן את הפוסט..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="postExcerpt">תקציר <span class="hint">(אופציונלי — אם ריק, ייגזר אוטומטית מהתוכן)</span></label>
+        <textarea id="postExcerpt" placeholder="2-3 משפטים שמופיעים בכרטיס"></textarea>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" class="btn btn-secondary" id="previewBtn">תצוגה מקדימה</button>
+        <button type="submit" class="btn btn-primary" id="publishBtn">
+          <span id="publishText">פרסם באתר</span>
+          <span id="publishSpinner" class="spinner" style="display:none;"></span>
+        </button>
+      </div>
+    </form>
+
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+</div>
+
+<!-- PREVIEW -->
+<div class="preview-overlay" id="previewOverlay">
+  <div class="preview-modal">
+    <button class="preview-close" id="previewClose" aria-label="סגור">&times;</button>
+    <div id="previewContent"></div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
