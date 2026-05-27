@@ -392,9 +392,60 @@ async function submitContactForm(e) {
     }
 }
 
+// Podcast rendering
+function formatDuration(d) {
+    if (!d) return '';
+    const parts = d.split(':').map(Number);
+    let h = 0, m = 0;
+    if (parts.length === 3) { [h, m] = parts; }
+    else if (parts.length === 2) { [m] = parts; }
+    return h > 0 ? `${h} שעות ${m} דק'` : `${m} דק'`;
+}
+
+function renderPodcastEpisodes() {
+    const list = document.getElementById('episodesList');
+    if (!list || typeof PODCAST_EPISODES === 'undefined') return;
+
+    list.innerHTML = PODCAST_EPISODES.map((ep, i) => {
+        const hasTranscript = ep.transcript && ep.transcript.trim().length > 0;
+        const transcriptHtml = hasTranscript
+            ? `<details class="episode-transcript">
+                <summary>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    קרא תמלול
+                </summary>
+                <div class="transcript-body">${escapeHtml(ep.transcript).replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>').replace(/^/, '<p>').replace(/$/, '</p>')}</div>
+               </details>`
+            : `<div class="episode-transcript transcript-coming">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                תמלול בהכנה
+               </div>`;
+
+        return `
+        <article class="episode-card">
+            <div class="episode-header">
+                <div class="episode-number">פרק ${PODCAST_EPISODES.length - i}</div>
+                <h3 class="episode-title">${escapeHtml(ep.title)}</h3>
+                <div class="episode-meta">
+                    <span>${escapeHtml(ep.pubDateHe)}</span>
+                    <span aria-hidden="true">·</span>
+                    <span>${formatDuration(ep.duration)}</span>
+                </div>
+            </div>
+            <p class="episode-description">${escapeHtml(ep.description)}</p>
+            <audio controls preload="none" class="episode-audio">
+                <source src="${escapeHtml(ep.audioUrl)}" type="audio/mpeg">
+                הדפדפן שלך לא תומך בנגן אודיו.
+            </audio>
+            ${transcriptHtml}
+        </article>`;
+    }).join('');
+}
+
 // Init
 renderBlog();
 initGalleryLightbox();
+renderPodcastEpisodes();
 
 // Update stats on home with real count
 const blogCountEl = document.getElementById('blogCount');
