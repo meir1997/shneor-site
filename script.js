@@ -33,7 +33,8 @@ window.addEventListener('scroll', () => {
 });
 
 // Blog rendering
-const POSTS_PER_PAGE = 9;
+const blogLimit = document.getElementById('blogGrid')?.dataset.limit;
+const POSTS_PER_PAGE = blogLimit ? parseInt(blogLimit, 10) : 9;
 let visiblePosts = POSTS_PER_PAGE;
 let currentFilter = 'all';
 let currentSearch = '';
@@ -63,6 +64,7 @@ function getFiltered() {
 }
 
 function renderBlog() {
+    if (!blogGrid) return;
     const filtered = getFiltered();
     const toShow = filtered.slice(0, visiblePosts);
 
@@ -105,7 +107,9 @@ function renderBlog() {
         </article>`;
     }).join('');
 
-    loadMoreBtn.style.display = visiblePosts >= filtered.length ? 'none' : 'inline-flex';
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = visiblePosts >= filtered.length ? 'none' : 'inline-flex';
+    }
 }
 
 // Filter buttons
@@ -119,10 +123,12 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
-loadMoreBtn.addEventListener('click', () => {
-    visiblePosts += POSTS_PER_PAGE;
-    renderBlog();
-});
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+        visiblePosts += POSTS_PER_PAGE;
+        renderBlog();
+    });
+}
 
 // Search with debounce
 let searchTimeout;
@@ -510,9 +516,15 @@ function renderPodcastEpisodes() {
     const list = document.getElementById('episodesList');
     if (!list || typeof PODCAST_EPISODES === 'undefined') return;
 
-    list.innerHTML = PODCAST_EPISODES.map((ep, i) => {
+    const limit = parseInt(list.dataset.limit || '0', 10);
+    const compact = list.dataset.compact === '1';
+    const episodes = limit > 0 ? PODCAST_EPISODES.slice(0, limit) : PODCAST_EPISODES;
+
+    list.innerHTML = episodes.map((ep, i) => {
         const hasTranscript = ep.transcript && ep.transcript.trim().length > 0;
-        const transcriptHtml = hasTranscript
+        const transcriptHtml = compact
+            ? ''
+            : hasTranscript
             ? `<details class="episode-transcript" data-guid="${escapeHtml(ep.guid)}">
                 <summary>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -546,6 +558,26 @@ function renderPodcastEpisodes() {
     }).join('');
 }
 
+function initVideoPosters() {
+    document.querySelectorAll('.video-poster').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.dataset.src;
+            if (!src) return;
+            const video = document.createElement('video');
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.preload = 'auto';
+            video.className = 'video-player';
+            const source = document.createElement('source');
+            source.src = src;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            btn.replaceWith(video);
+        });
+    });
+}
+
 function initPodcastSync() {
     const cards = document.querySelectorAll('.episode-card');
     cards.forEach(card => {
@@ -565,6 +597,7 @@ renderBlog();
 initGalleryLightbox();
 renderPodcastEpisodes();
 initPodcastSync();
+initVideoPosters();
 
 // Update stats on home with real count
 const blogCountEl = document.getElementById('blogCount');
