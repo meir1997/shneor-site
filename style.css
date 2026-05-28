@@ -781,6 +781,15 @@ body {
 }
 .transcript-body p { margin-bottom: 14px; }
 .transcript-body p:last-child { margin-bottom: 0; }
+.transcript-body p.speaker-label {
+    font-weight: 700;
+    color: var(--primary);
+    margin: 18px 0 6px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 4px;
+}
+.transcript-body p.speaker-label:first-child { margin-top: 0; }
 .transcript-coming {
     display: inline-flex; align-items: center; gap: 8px;
     color: var(--text-muted);

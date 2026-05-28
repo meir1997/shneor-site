@@ -402,6 +402,30 @@ function formatDuration(d) {
     return h > 0 ? `${h} שעות ${m} דק'` : `${m} דק'`;
 }
 
+function formatTranscript(text) {
+    const lines = text.split('\n');
+    const out = [];
+    let inPara = false;
+    const closePara = () => { if (inPara) { out.push('</p>'); inPara = false; } };
+
+    for (const raw of lines) {
+        const line = raw.trim();
+        const speakerMatch = line.match(/^\*\*(.+?):\*\*\s*$/);
+        if (speakerMatch) {
+            closePara();
+            out.push(`<p class="speaker-label">${escapeHtml(speakerMatch[1])}</p>`);
+        } else if (line === '') {
+            closePara();
+        } else {
+            if (!inPara) { out.push('<p>'); inPara = true; }
+            else { out.push(' '); }
+            out.push(escapeHtml(line));
+        }
+    }
+    closePara();
+    return out.join('');
+}
+
 function renderPodcastEpisodes() {
     const list = document.getElementById('episodesList');
     if (!list || typeof PODCAST_EPISODES === 'undefined') return;
@@ -414,7 +438,7 @@ function renderPodcastEpisodes() {
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     קרא תמלול
                 </summary>
-                <div class="transcript-body">${escapeHtml(ep.transcript).replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>').replace(/^/, '<p>').replace(/$/, '</p>')}</div>
+                <div class="transcript-body">${formatTranscript(ep.transcript)}</div>
                </details>`
             : `<div class="episode-transcript transcript-coming">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
