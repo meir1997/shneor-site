@@ -426,6 +426,86 @@ function formatTranscript(text) {
     return out.join('');
 }
 
+function renderSyncedTranscript(chunks) {
+    const out = [];
+    let wordIndex = 0;
+    for (const chunk of chunks) {
+        out.push(`<p class="speaker-label">${escapeHtml(chunk.speaker)}</p>`);
+        out.push('<p class="synced-para">');
+        const wordHtml = chunk.words.map(w => {
+            const html = `<span class="sw" data-i="${wordIndex}" data-t="${w.t}" data-d="${w.d}">${escapeHtml(w.w)}</span>`;
+            wordIndex++;
+            return html;
+        }).join(' ');
+        out.push(wordHtml);
+        out.push('</p>');
+    }
+    return out.join('');
+}
+
+async function loadSyncedTranscript(guid, container, audio) {
+    if (container.dataset.synced === '1') return; // already loaded
+    try {
+        const res = await fetch(`transcripts/${guid}.json`);
+        if (!res.ok) return; // fall back to plain text already rendered
+        const data = await res.json();
+        container.innerHTML = renderSyncedTranscript(data.chunks);
+        container.dataset.synced = '1';
+        bindAudioSync(audio, container);
+    } catch (err) {
+        console.warn('Synced transcript not available for', guid, err);
+    }
+}
+
+function bindAudioSync(audio, container) {
+    const words = container.querySelectorAll('.sw');
+    if (!words.length) return;
+
+    let lastActive = -1;
+    const onTime = () => {
+        const t = audio.currentTime;
+        // Binary search for the word covering time t
+        let lo = 0, hi = words.length - 1, idx = -1;
+        while (lo <= hi) {
+            const mid = (lo + hi) >> 1;
+            const wt = parseFloat(words[mid].dataset.t);
+            const wd = parseFloat(words[mid].dataset.d);
+            if (t < wt) hi = mid - 1;
+            else if (t > wt + wd + 0.4) lo = mid + 1;
+            else { idx = mid; break; }
+        }
+        if (idx === -1) {
+            // Find the word just before t
+            for (let i = words.length - 1; i >= 0; i--) {
+                if (parseFloat(words[i].dataset.t) <= t) { idx = i; break; }
+            }
+        }
+        if (idx !== lastActive) {
+            if (lastActive >= 0) words[lastActive].classList.remove('active');
+            if (idx >= 0) {
+                words[idx].classList.add('active');
+                // Auto-scroll the active word into view if it's outside
+                const wRect = words[idx].getBoundingClientRect();
+                const cRect = container.getBoundingClientRect();
+                if (wRect.top < cRect.top + 40 || wRect.bottom > cRect.bottom - 40) {
+                    words[idx].scrollIntoView({block: 'center', behavior: 'smooth'});
+                }
+            }
+            lastActive = idx;
+        }
+    };
+
+    audio.addEventListener('timeupdate', onTime);
+
+    // Click word → seek
+    container.addEventListener('click', (e) => {
+        const span = e.target.closest('.sw');
+        if (!span) return;
+        audio.currentTime = parseFloat(span.dataset.t);
+        if (audio.paused) audio.play();
+    });
+}
+
 function renderPodcastEpisodes() {
     const list = document.getElementById('episodesList');
     if (!list || typeof PODCAST_EPISODES === 'undefined') return;
@@ -433,7 +513,7 @@ function renderPodcastEpisodes() {
     list.innerHTML = PODCAST_EPISODES.map((ep, i) => {
         const hasTranscript = ep.transcript && ep.transcript.trim().length > 0;
         const transcriptHtml = hasTranscript
-            ? `<details class="episode-transcript">
+            ? `<details class="episode-transcript" data-guid="${escapeHtml(ep.guid)}">
                 <summary>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     קרא תמלול
@@ -466,10 +546,25 @@ function renderPodcastEpisodes() {
     }).join('');
 }
 
+function initPodcastSync() {
+    const cards = document.querySelectorAll('.episode-card');
+    cards.forEach(card => {
+        const details = card.querySelector('details.episode-transcript');
+        const audio = card.querySelector('audio.episode-audio');
+        if (!details || !audio) return;
+        const guid = details.dataset.guid;
+        const body = details.querySelector('.transcript-body');
+        details.addEventListener('toggle', () => {
+            if (details.open) loadSyncedTranscript(guid, body, audio);
+        });
+    });
+}
+
 // Init
 renderBlog();
 initGalleryLightbox();
 renderPodcastEpisodes();
+initPodcastSync();
 
 // Update stats on home with real count
 const blogCountEl = document.getElementById('blogCount');
