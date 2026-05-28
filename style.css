@@ -790,11 +790,67 @@ body {
     padding-bottom: 4px;
 }
 .transcript-body p.speaker-label:first-child { margin-top: 0; }
+.transcript-body .synced-para {
+    margin-bottom: 14px;
+}
+.transcript-body .sw {
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 1px 2px;
+    transition: background-color 0.12s ease, color 0.12s ease;
+}
+.transcript-body .sw:hover {
+    background-color: rgba(212, 132, 42, 0.18);
+}
+.transcript-body .sw.active {
+    background-color: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+}
 .transcript-coming {
     display: inline-flex; align-items: center; gap: 8px;
     color: var(--text-muted);
     font-size: 0.875rem;
     font-style: italic;
+}
+
+/* Videos Section */
+.videos-section { background: var(--bg); }
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.video-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-light);
+}
+.video-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.video-card video {
+    width: 100%;
+    display: block;
+    background: #000;
+    aspect-ratio: 9 / 16;
+    object-fit: contain;
+    max-height: 540px;
+}
+.video-card .video-title {
+    padding: 18px 22px 22px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .videos-grid { grid-template-columns: 1fr; gap: 20px; }
+    .video-card video { max-height: none; }
 }
 
 /* Research Articles Section */
