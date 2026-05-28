@@ -95,17 +95,13 @@ function renderBlog() {
 
     const todayMs = Date.now();
     blogGrid.innerHTML = toShow.map((post, idx) => {
-        const illus = (typeof blogIllustrations !== 'undefined' && blogIllustrations[post.id])
-            ? `<div class="blog-card-illustration">${blogIllustrations[post.id]}</div>`
-            : '';
         const postMs = post.date ? new Date(post.date).getTime() : 0;
         const isNew = postMs && (todayMs - postMs) < 21 * 86400000; // last 3 weeks
         const dateBadge = post.dateHe
             ? `<span class="blog-card-date${isNew ? ' is-new' : ''}">${isNew ? '<span class="new-pill">חדש</span> ' : ''}${escapeHtml(post.dateHe)}</span>`
             : '';
         return `
-        <article class="blog-card${illus ? ' has-illustration' : ''}" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
-            ${illus}
+        <article class="blog-card" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
             <div class="blog-card-header">
                 <div class="blog-card-meta-row">
                     <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
@@ -186,16 +182,11 @@ function openBlogModal(id) {
         })
         .join('');
 
-    const modalIllus = (typeof blogIllustrations !== 'undefined' && blogIllustrations[post.id])
-        ? `<div class="blog-modal-illustration">${blogIllustrations[post.id]}</div>`
-        : '';
-
     modal.innerHTML = `
         <div class="blog-modal-content">
             <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="סגור">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
-            ${modalIllus}
             <div class="blog-modal-meta">
                 <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
                 ${post.dateHe ? `<span class="blog-modal-date">${escapeHtml(post.dateHe)}</span>` : ''}
