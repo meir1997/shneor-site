@@ -60,6 +60,13 @@ function getFiltered() {
             p.content.toLowerCase().includes(q)
         );
     }
+    // Sort newest first
+    list = list.slice().sort((a, b) => {
+        const da = a.date || '';
+        const db = b.date || '';
+        if (da !== db) return db.localeCompare(da);
+        return (b.id || 0) - (a.id || 0);
+    });
     return list;
 }
 
@@ -86,15 +93,24 @@ function renderBlog() {
         return;
     }
 
+    const todayMs = Date.now();
     blogGrid.innerHTML = toShow.map((post, idx) => {
         const illus = (typeof blogIllustrations !== 'undefined' && blogIllustrations[post.id])
             ? `<div class="blog-card-illustration">${blogIllustrations[post.id]}</div>`
+            : '';
+        const postMs = post.date ? new Date(post.date).getTime() : 0;
+        const isNew = postMs && (todayMs - postMs) < 21 * 86400000; // last 3 weeks
+        const dateBadge = post.dateHe
+            ? `<span class="blog-card-date${isNew ? ' is-new' : ''}">${isNew ? '<span class="new-pill">חדש</span> ' : ''}${escapeHtml(post.dateHe)}</span>`
             : '';
         return `
         <article class="blog-card${illus ? ' has-illustration' : ''}" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
             ${illus}
             <div class="blog-card-header">
-                <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
+                <div class="blog-card-meta-row">
+                    <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
+                    ${dateBadge}
+                </div>
                 <h3>${escapeHtml(post.title)}</h3>
                 ${post.subtitle ? `<p class="blog-card-subtitle">${escapeHtml(post.subtitle)}</p>` : ''}
             </div>
@@ -182,6 +198,7 @@ function openBlogModal(id) {
             ${modalIllus}
             <div class="blog-modal-meta">
                 <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
+                ${post.dateHe ? `<span class="blog-modal-date">${escapeHtml(post.dateHe)}</span>` : ''}
             </div>
             <h2>${escapeHtml(post.title)}</h2>
             ${post.subtitle ? `<p class="blog-modal-subtitle">${escapeHtml(post.subtitle)}</p>` : ''}

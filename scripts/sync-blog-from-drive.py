@@ -245,9 +245,18 @@ def save_seen(seen: dict) -> None:
     SEEN_PATH.write_text(json.dumps(seen, ensure_ascii=False, indent=2))
 
 
+HEB_MONTHS = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני",
+              "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]
+
+
+def _format_he(d: datetime) -> str:
+    return f"{d.day} ב{HEB_MONTHS[d.month - 1]} {d.year}"
+
+
 def append_post(posts: list[dict], parsed: dict) -> dict:
     next_id = max((p["id"] for p in posts), default=0) + 1
     category, label = categorize(parsed["title"], parsed["content"])
+    today = datetime.now(timezone.utc)
     entry = {
         "id": next_id,
         "title": parsed["title"],
@@ -256,6 +265,8 @@ def append_post(posts: list[dict], parsed: dict) -> dict:
         "content": parsed["content"],
         "category": category,
         "categoryLabel": label,
+        "date": today.strftime("%Y-%m-%d"),
+        "dateHe": _format_he(today),
     }
     posts.append(entry)
     return entry

@@ -295,14 +295,36 @@ body {
 .blog-card.has-illustration .blog-card-header {
     background: transparent;
 }
+.blog-card-meta-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 10px; margin-bottom: 14px;
+}
 .blog-card-category {
     display: inline-block; padding: 4px 14px; border-radius: 999px;
-    font-size: 0.72rem; font-weight: 700; margin-bottom: 14px;
+    font-size: 0.72rem; font-weight: 700;
     text-transform: none; letter-spacing: 0.3px;
 }
 .blog-card-category.cat-chinuch { background: var(--cat-chinuch-bg); color: var(--cat-chinuch); }
 .blog-card-category.cat-horut { background: var(--cat-horut-bg); color: var(--cat-horut); }
 .blog-card-category.cat-values { background: var(--cat-values-bg); color: var(--cat-values); }
+.blog-card-date {
+    font-size: 0.78rem; color: var(--text-muted); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 6px;
+}
+.blog-card-date.is-new { color: var(--accent-dark); font-weight: 600; }
+.new-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+}
+.blog-modal-date {
+    font-size: 0.85rem; color: var(--text-muted); margin-right: 12px;
+}
 .blog-card h3 {
     font-size: 1.13rem; font-weight: 700; color: var(--primary-dark);
     line-height: 1.45; margin-bottom: 6px;
