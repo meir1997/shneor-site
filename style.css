@@ -770,6 +770,23 @@ body {
     margin-bottom: 14px;
     border-radius: var(--radius-sm);
 }
+.episode-external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+    transition: var(--transition);
+}
+.episode-external-link:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
 .episode-transcript {
     border-top: 1px solid var(--border-light);
     padding-top: 14px;

@@ -530,6 +530,17 @@ function renderPodcastEpisodes() {
 
     list.innerHTML = episodes.map((ep, i) => {
         const hasTranscript = ep.transcript && ep.transcript.trim().length > 0;
+        const mediaHtml = ep.audioUrl
+            ? `<audio controls preload="none" class="episode-audio">
+                <source src="${escapeHtml(ep.audioUrl)}" type="audio/mpeg">
+                הדפדפן שלך לא תומך בנגן אודיו.
+            </audio>`
+            : ep.externalUrl
+            ? `<a class="episode-external-link" href="${escapeHtml(ep.externalUrl)}" target="_blank" rel="noopener">
+                <span>להאזנה בכיכר השבת</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </a>`
+            : '';
         const transcriptHtml = compact
             ? ''
             : hasTranscript
@@ -557,10 +568,7 @@ function renderPodcastEpisodes() {
                 </div>
             </div>
             <p class="episode-description">${escapeHtml(ep.description)}</p>
-            <audio controls preload="none" class="episode-audio">
-                <source src="${escapeHtml(ep.audioUrl)}" type="audio/mpeg">
-                הדפדפן שלך לא תומך בנגן אודיו.
-            </audio>
+            ${mediaHtml}
             ${transcriptHtml}
         </article>`;
     }).join('');
