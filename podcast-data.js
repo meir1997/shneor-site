@@ -2,9 +2,12 @@
 const PODCAST_EPISODES = [
   {
     "guid": "kikar-fm-thuinx-2026-07-09",
-    "title": "סוג א׳: על האתגר של מערכת החינוך החרדית",
+    "title": "התארחות בכיכר FM: על האתגר של מערכת החינוך החרדית",
     "pubDate": "Thu, 09 Jul 2026 13:12:00 +0300",
     "duration": "01:02:32",
+    "episodeLabel": "התארחות",
+    "audioUrl": "https://stream.kikar.co.il/44a6c3eb-c1d2-48c2-9805-e75ff0d24764/play_480p.mp4",
+    "audioType": "video/mp4",
     "externalUrl": "https://www.kikar.co.il/kikarfm/thuinx",
     "description": "שניאור רוכברגר התארח בפודקאסט כיכר FM לשיחה פתוחה עם משה מנס על האתגרים במערכת החינוך החרדית: נורמות מול ערכים, תחושת סוג ב׳, נשירה, הכשרת אנשי חינוך והצורך להחזיר את ההורים למגרש החינוכי.",
     "summary": "",

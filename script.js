@@ -530,9 +530,10 @@ function renderPodcastEpisodes() {
 
     list.innerHTML = episodes.map((ep, i) => {
         const hasTranscript = ep.transcript && ep.transcript.trim().length > 0;
+        const episodeLabel = ep.episodeLabel || `פרק ${PODCAST_EPISODES.length - i}`;
         const mediaHtml = ep.audioUrl
             ? `<audio controls preload="none" class="episode-audio">
-                <source src="${escapeHtml(ep.audioUrl)}" type="audio/mpeg">
+                <source src="${escapeHtml(ep.audioUrl)}" type="${escapeHtml(ep.audioType || 'audio/mpeg')}">
                 הדפדפן שלך לא תומך בנגן אודיו.
             </audio>`
             : ep.externalUrl
@@ -559,7 +560,7 @@ function renderPodcastEpisodes() {
         return `
         <article class="episode-card">
             <div class="episode-header">
-                <div class="episode-number">פרק ${PODCAST_EPISODES.length - i}</div>
+                <div class="episode-number">${escapeHtml(episodeLabel)}</div>
                 <h3 class="episode-title">${escapeHtml(ep.title)}</h3>
                 <div class="episode-meta">
                     <span>${escapeHtml(ep.pubDateHe)}</span>
