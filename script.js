@@ -457,18 +457,80 @@ function renderSyncedTranscript(chunks) {
     return out.join('');
 }
 
+function formatTranscriptTime(seconds) {
+    const total = Math.max(0, Math.floor(Number(seconds) || 0));
+    const minutes = Math.floor(total / 60);
+    const rest = total % 60;
+    return `${minutes}:${String(rest).padStart(2, '0')}`;
+}
+
+function renderUtteranceTranscript(utterances) {
+    return utterances.map((u, idx) => {
+        const speaker = u.speakerName || u.speaker || 'דובר';
+        return `
+        <div class="transcript-utterance" data-start="${Number(u.start) || 0}" data-end="${Number(u.end) || 0}" data-idx="${idx}">
+            <span class="utterance-time">${formatTranscriptTime(u.start)}</span>
+            <span class="utterance-speaker">${escapeHtml(speaker)}</span>
+            <span class="utterance-text">${escapeHtml(u.text || '')}</span>
+        </div>`;
+    }).join('');
+}
+
 async function loadSyncedTranscript(guid, container, audio) {
     if (container.dataset.synced === '1') return; // already loaded
     try {
         const res = await fetch(`transcripts/${guid}.json`);
         if (!res.ok) return; // fall back to plain text already rendered
         const data = await res.json();
-        container.innerHTML = renderSyncedTranscript(data.chunks);
+        if (Array.isArray(data.utterances) && data.utterances.length > 0) {
+            container.innerHTML = renderUtteranceTranscript(data.utterances);
+            bindUtteranceSync(audio, container);
+        } else if (Array.isArray(data.chunks) && data.chunks.length > 0) {
+            container.innerHTML = renderSyncedTranscript(data.chunks);
+            bindAudioSync(audio, container);
+        } else {
+            return;
+        }
         container.dataset.synced = '1';
-        bindAudioSync(audio, container);
     } catch (err) {
         console.warn('Synced transcript not available for', guid, err);
     }
+}
+
+function bindUtteranceSync(audio, container) {
+    const utterances = container.querySelectorAll('.transcript-utterance');
+    if (!utterances.length) return;
+
+    let lastActive = null;
+    const onTime = () => {
+        const t = audio.currentTime;
+        let active = null;
+        utterances.forEach(el => {
+            const start = parseFloat(el.dataset.start);
+            const end = parseFloat(el.dataset.end);
+            if (t >= start && t < end) active = el;
+            else el.classList.remove('active');
+        });
+
+        if (active && active !== lastActive) {
+            active.classList.add('active');
+            const aRect = active.getBoundingClientRect();
+            const cRect = container.getBoundingClientRect();
+            if (aRect.top < cRect.top + 40 || aRect.bottom > cRect.bottom - 40) {
+                active.scrollIntoView({block: 'center', behavior: 'smooth'});
+            }
+            lastActive = active;
+        }
+    };
+
+    audio.addEventListener('timeupdate', onTime);
+
+    container.addEventListener('click', (e) => {
+        const utterance = e.target.closest('.transcript-utterance');
+        if (!utterance) return;
+        audio.currentTime = parseFloat(utterance.dataset.start);
+        if (audio.paused) audio.play();
+    });
 }
 
 function bindAudioSync(audio, container) {
