@@ -1,0 +1,34 @@
+.instructions-page { background: #fcfaf5; }
+.instructions-page .navbar { background: rgba(255,255,255,0.94); border-bottom-color: var(--border-light); }
+.instructions-wrap { max-width: 1120px; padding-top: 114px; padding-bottom: 72px; }
+.instructions-meta { display: flex; justify-content: space-between; align-items: center; color: #9aa5b4; font-size: 1rem; font-weight: 500; margin-bottom: 20px; }
+.instructions-hero { background: #244e7e; color: var(--white); border-radius: 10px; padding: 40px 28px 34px; text-align: center; }
+.instructions-hero h1 { font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.25; font-weight: 800; margin-bottom: 10px; }
+.instructions-hero p { color: #d8e2f0; font-size: clamp(1.05rem, 2vw, 1.42rem); }
+.instructions-intro { background: var(--white); color: #56657a; border: 1px solid #e6ebf0; border-right: 7px solid #d5902f; border-radius: 8px; font-size: 1.16rem; text-align: center; padding: 21px 30px; margin: 28px 0 38px; line-height: 1.75; }
+.instructions-section { margin-top: 34px; }
+.instructions-section h2 { font-size: clamp(1.45rem, 2.6vw, 2rem); color: #173e6c; border-bottom: 3px solid #dfe6ed; padding-bottom: 8px; margin-bottom: 18px; font-weight: 800; }
+.anchor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.anchor-card, .rule-card { background: var(--white); border: 1px solid #d8e2ec; border-radius: 9px; padding: 25px 22px; text-align: center; }
+.anchor-card h3 { font-size: 1.45rem; padding-bottom: 8px; margin-bottom: 13px; border-bottom: 3px solid; }
+.anchor-card h4 { color: #506075; font-size: 1.12rem; margin-bottom: 6px; }
+.anchor-card p, .rule-card p { color: #69778a; font-size: 1rem; line-height: 1.72; }
+.anchor-card.values h3 { color: #ad741c; border-color: #d4912e; }
+.anchor-card.skills h3 { color: #23756e; border-color: #30877e; }
+.anchor-card.leadership h3 { color: #304958; border-color: #466d7a; }
+.rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rule-card h3 { color: #173e6c; font-size: 1.35rem; margin-bottom: 13px; }
+.no-list { margin-top: 13px; padding: 9px 13px; border: 2px dashed #f08b6d; border-radius: 7px; background: #fff5ef; color: #5f6570 !important; }
+.no-list strong { color: #b34e36; }
+.table-scroll { overflow-x: auto; border: 1px solid #d8e2ec; }
+.age-table { width: 100%; min-width: 660px; border-collapse: collapse; background: var(--white); }
+.age-table th, .age-table td { padding: 18px 20px; border-bottom: 1px solid #dfe6ed; text-align: right; vertical-align: middle; line-height: 1.65; }
+.age-table thead th { background: #285486; color: var(--white); font-size: 1.08rem; text-align: center; }
+.age-table tbody tr:last-child th, .age-table tbody tr:last-child td { border-bottom: 0; }
+.age-table tbody th { color: #173e6c; font-size: 1.05rem; white-space: nowrap; }
+.age-table tbody td:nth-child(2) { color: #36485e; font-weight: 700; text-align: center; }
+.age-table tbody td:last-child { color: #5b6b80; }
+.instructions-closing { color: #173e6c; font-size: 1.3rem; font-weight: 800; margin: 38px 0 56px; line-height: 1.45; }
+.instructions-footer { text-align: center; color: #9aa5b4; font-size: 0.94rem; }
+.instructions-action { text-align: center; margin-top: 22px; }
+@media (max-width: 700px) { .instructions-wrap { padding: 96px 18px 48px; } .instructions-meta { font-size: .82rem; align-items: flex-start; gap: 10px; } .instructions-hero { padding: 30px 18px; } .instructions-intro { font-size: 1.02rem; padding: 17px; } .anchor-grid, .rules-grid { grid-template-columns: 1fr; } .anchor-card, .rule-card { padding: 22px 18px; } .instructions-section h2 { font-size: 1.36rem; } .age-table th, .age-table td { padding: 14px; } }
