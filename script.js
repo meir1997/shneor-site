@@ -101,7 +101,7 @@ function renderBlog() {
             ? `<span class="blog-card-date${isNew ? ' is-new' : ''}">${isNew ? '<span class="new-pill">חדש</span> ' : ''}${escapeHtml(post.dateHe)}</span>`
             : '';
         return `
-        <article class="blog-card" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms">
+        <button type="button" class="blog-card" onclick="openBlogModal(${post.id})" style="animation-delay:${idx * 30}ms" aria-label="קראו את הטור: ${escapeHtml(post.title)}">
             <div class="blog-card-header">
                 <div class="blog-card-meta-row">
                     <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
@@ -116,7 +116,7 @@ function renderBlog() {
             <div class="blog-card-footer">
                 <span class="read-more">קראו עוד <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
             </div>
-        </article>`;
+        </button>`;
     }).join('');
 
     if (loadMoreBtn) {
