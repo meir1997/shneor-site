@@ -1,7 +1,7 @@
 .instructions-page { background: #fcfaf5; }
 .instructions-page .navbar { background: rgba(255,255,255,0.94); border-bottom-color: var(--border-light); }
 .instructions-wrap { max-width: 1120px; padding-top: 114px; padding-bottom: 72px; }
-.instructions-meta { display: flex; justify-content: space-between; align-items: center; color: #9aa5b4; font-size: 1rem; font-weight: 500; margin-bottom: 20px; }
+.instructions-meta { display: flex; justify-content: space-between; align-items: center; color: #596579; font-size: 1rem; font-weight: 500; margin-bottom: 20px; }
 .instructions-hero { background: #244e7e; color: var(--white); border-radius: 10px; padding: 40px 28px 34px; text-align: center; }
 .instructions-hero h1 { font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.25; font-weight: 800; margin-bottom: 10px; }
 .instructions-hero p { color: #d8e2f0; font-size: clamp(1.05rem, 2vw, 1.42rem); }
@@ -29,6 +29,6 @@
 .age-table tbody td:nth-child(2) { color: #36485e; font-weight: 700; text-align: center; }
 .age-table tbody td:last-child { color: #5b6b80; }
 .instructions-closing { color: #173e6c; font-size: 1.3rem; font-weight: 800; margin: 38px 0 56px; line-height: 1.45; }
-.instructions-footer { text-align: center; color: #9aa5b4; font-size: 0.94rem; }
+.instructions-footer { text-align: center; color: #596579; font-size: 0.94rem; }
 .instructions-action { text-align: center; margin-top: 22px; }
 @media (max-width: 700px) { .instructions-wrap { padding: 96px 18px 48px; } .instructions-meta { font-size: .82rem; align-items: flex-start; gap: 10px; } .instructions-hero { padding: 30px 18px; } .instructions-intro { font-size: 1.02rem; padding: 17px; } .anchor-grid, .rules-grid { grid-template-columns: 1fr; } .anchor-card, .rule-card { padding: 22px 18px; } .instructions-section h2 { font-size: 1.36rem; } .age-table th, .age-table td { padding: 14px; } }

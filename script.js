@@ -107,7 +107,7 @@ function renderBlog() {
                     <span class="blog-card-category cat-${post.category}">${post.categoryLabel}</span>
                     ${dateBadge}
                 </div>
-                <h3>${escapeHtml(post.title)}</h3>
+                <h2>${escapeHtml(post.title)}</h2>
                 ${post.subtitle ? `<p class="blog-card-subtitle">${escapeHtml(post.subtitle)}</p>` : ''}
             </div>
             <div class="blog-card-body">

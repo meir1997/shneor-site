@@ -5,15 +5,15 @@
     --primary: #1a4480;
     --primary-light: #2d5fa3;
     --primary-dark: #0e2a52;
-    --accent: #d4842a;
+    --accent: #a85812;
     --accent-light: #e89d3f;
     --accent-dark: #b66f1f;
     --bg: #fafaf7;
     --bg-alt: #f3f0e9;
     --bg-card: #ffffff;
     --text: #1f2937;
-    --text-light: #6b7280;
-    --text-muted: #9ca3af;
+    --text-light: #4b5563;
+    --text-muted: #6b7280;
     --border: #e5e7eb;
     --border-light: #f3f4f6;
     --white: #fff;
@@ -27,7 +27,7 @@
     --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --cat-chinuch: #1a4480;
     --cat-chinuch-bg: #e8efef;
-    --cat-horut: #b66f1f;
+    --cat-horut: #864c0d;
     --cat-horut-bg: #faf3e8;
     --cat-values: #6b3f9e;
     --cat-values-bg: #f1ebfa;
@@ -326,6 +326,7 @@ body {
 .blog-modal-date {
     font-size: 0.85rem; color: var(--text-muted); margin-right: 12px;
 }
+.blog-card h2,
 .blog-card h3 {
     font-size: 1.13rem; font-weight: 700; color: var(--primary-dark);
     line-height: 1.45; margin-bottom: 6px;
