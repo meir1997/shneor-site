@@ -1,19 +1,65 @@
-.workshop-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 80px; border-bottom: 1px solid var(--border); }
-.workshop-header a { letter-spacing: 0; }
-.workshop-main { max-width: 960px; padding-top: 40px; padding-bottom: 48px; }
-.workshop-intro { display: flex; gap: 28px; align-items: center; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-.workshop-intro img { object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-.workshop-intro h1 { font-size: 30px; color: var(--primary); letter-spacing: 0; }
-.workshop-price { font-size: 28px; font-weight: 700; margin: 8px 0; }
-.workshop-price span { font-size: 16px; font-weight: 400; }
-.workshop-checkout { padding-top: 24px; }
-.workshop-checkout h2 { font-size: 22px; margin-bottom: 16px; }
-.workshop-checkout .btn { max-width: 100%; white-space: normal; text-align: center; letter-spacing: 0; }
-@media (max-width: 600px) {
-    .workshop-header .logo { font-size: 18px; }
-    .workshop-header a { font-size: 14px; }
-    .workshop-main { padding-top: 24px; }
-    .workshop-intro { gap: 16px; align-items: flex-start; }
-    .workshop-intro img { width: 88px; height: 112px; }
-    .workshop-intro h1 { font-size: 24px; }
+body { background:#fff; color:#18312f; }
+.workshop-header { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:76px; }
+.workshop-header a { letter-spacing:0; color:#18312f; }
+.workshop-header > a:last-child { font-size:14px; text-decoration:none; border-bottom:1px solid #a4b8b2; }
+.workshop-hero { position:relative; min-height:540px; height:min(660px, calc(100svh - 160px)); overflow:hidden; background:#eef3f0; }
+.hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.hero-inner { position:relative; display:flex; align-items:center; height:100%; min-height:540px; }
+.hero-copy { width:360px; max-width:32%; padding:28px 0; }
+.eyebrow { font-size:14px; font-weight:600; margin-bottom:16px; letter-spacing:0; }
+.hero-copy h1 { font-size:76px; line-height:1.08; letter-spacing:0; margin-bottom:22px; }
+.hero-lead { font-size:28px; line-height:1.5; font-weight:500; }
+.hero-description { font-size:17px; line-height:1.85; margin:20px 0 26px; }
+.workshop-button { display:inline-flex; justify-content:center; align-items:center; gap:24px; background:#126653; color:#fff; padding:15px 24px; text-decoration:none; font-weight:600; font-size:17px; border-radius:6px; max-width:100%; text-align:center; transition:background .2s; }
+.workshop-button:hover { background:#0c4b3d; }
+.workshop-button:focus-visible, a:focus-visible { outline:3px solid #c57930; outline-offset:5px; }
+.workshop-facts { background:#183b35; color:#fff; }
+.facts-inner { display:grid; grid-template-columns:repeat(3,1fr); padding-block:24px; }
+.facts-inner p { display:flex; flex-direction:column; text-align:center; border-inline-end:1px solid #46675e; }
+.facts-inner p:last-child { border:0; }
+.facts-inner strong { font-size:19px; font-weight:600; }
+.facts-inner span { font-size:14px; color:#d7e4de; }
+.workshop-story { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; padding-block:84px; }
+h2 { font-size:38px; line-height:1.35; letter-spacing:0; }
+.story-copy { font-size:18px; line-height:1.95; }
+.story-copy p + p { margin-top:20px; }
+.workshop-questions { background:#f1f5f3; padding-block:64px; border-block:1px solid #dce7e1; }
+.question-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:40px; }
+.question-grid article { border-top:1px solid #a5bdb1; padding-top:18px; }
+.question-grid article > span { color:#397c66; font-size:14px; }
+.question-grid h3 { font-size:23px; margin:14px 0 10px; }
+.question-grid p { font-size:17px; line-height:1.8; }
+.workshop-host { display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:70px; padding-block:64px; }
+.workshop-host h2 { font-size:30px; }
+.workshop-host p:not(.eyebrow) { margin:16px 0; max-width:520px; }
+.workshop-host a { color:#126653; }
+.host-note { font-size:25px; border-inline-start:3px solid #b77639; padding-inline-start:28px; }
+.workshop-registration { background:#e9f0f6; padding-block:64px; scroll-margin-top:24px; }
+.registration-inner { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.registration-inner h2 { color:#1a4480; margin-bottom:16px; }
+.registration-inner a:not(.workshop-button) { color:#1a4480; }
+.schedule-note { font-size:14px; margin:18px 0 8px; }
+.registration-action { border-inline-start:1px solid #bdcbd4; padding-inline-start:60px; }
+.workshop-price { font-size:60px; font-weight:700; line-height:1.2; margin-bottom:16px; }
+.workshop-price span { font-size:20px; font-weight:400; }
+.registration-action .workshop-button { margin-top:24px; width:100%; }
+.payment-note { font-size:13px; margin-top:12px; color:#53666b; }
+.workshop-footer { display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; padding-block:24px; font-size:14px; }
+.workshop-footer a { color:#18312f; }
+@media(max-width:900px) { .hero-copy h1 { font-size:58px; } .hero-copy { max-width:38%; } .hero-lead { font-size:24px; } .workshop-story { gap:40px; } }
+@media(max-width:600px) {
+ .workshop-header { min-height:68px; } .workshop-header .logo { font-size:18px; }
+ .workshop-hero { height:auto; min-height:0; display:flex; flex-direction:column; }
+ .hero-photo { position:relative; height:260px; object-position:28% center; order:2; }
+ .hero-inner { min-height:0; height:auto; background:#f5f8f6; }
+ .hero-copy { width:100%; max-width:none; padding:30px 0; }
+ .hero-copy h1 { font-size:50px; margin-bottom:16px; } .hero-lead { font-size:23px; }
+ .hero-description { font-size:16px; margin:16px 0 20px; }
+ .facts-inner { padding:20px 12px; } .facts-inner strong { font-size:15px; } .facts-inner span { font-size:12px; }
+ .workshop-story, .workshop-host, .registration-inner { grid-template-columns:1fr; gap:28px; }
+ .workshop-story, .workshop-host { padding-block:44px; } h2 { font-size:30px; }
+ .story-copy { font-size:17px; } .workshop-questions, .workshop-registration { padding-block:44px; }
+ .question-grid { grid-template-columns:1fr; gap:24px; margin-top:28px; }
+ .registration-action { padding:24px 0 0; border-inline-start:0; border-top:1px solid #bdcbd4; }
+ .workshop-price { font-size:48px; } .host-note { font-size:22px; }
 }
