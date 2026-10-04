@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><base target="_top"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e9f0f6;color:#18312f;font:16px Arial,sans-serif;line-height:1.6}
+form{max-width:540px;margin:auto;padding:20px}label{display:block;font-weight:600;margin:12px 0 5px}
+input:not([type=checkbox]){width:100%;height:46px;border:1px solid #a1b5bf;border-radius:4px;padding:10px;font:inherit;background:#fff}
+.consent{display:flex;gap:10px;font-size:14px;font-weight:400;margin:18px 0}.consent input{flex:0 0 18px}
+button,.payment{display:block;width:100%;background:#126653;color:#fff;padding:14px;border:0;border-radius:6px;font:600 17px Arial;cursor:pointer;text-align:center;text-decoration:none}
+button:disabled{opacity:.6;cursor:wait}input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #b77639;outline-offset:3px}
+.trap,[hidden]{display:none!important}.message{min-height:26px;color:#9b2020}.note{font-size:13px;color:#53666b}.payment{margin-top:16px}
+</style></head>
+<body><form id="registration-form">
+<label for="name">שם מלא</label><input id="name" name="name" autocomplete="name" required minlength="2" maxlength="100">
+<label for="email">כתובת דוא״ל לקבלת קישור הזום</label><input id="email" name="email" dir="ltr" type="email" autocomplete="email" required maxlength="200">
+<label for="phone">טלפון</label><input id="phone" name="phone" dir="ltr" type="tel" autocomplete="tel" required maxlength="20">
+<div class="trap" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" name="consent" required><span>אני מסכים/ה לשמירת פרטי הקשר ב־Google לצורך ניהול ההרשמה ולקבלת הודעות על הסדנה בדוא״ל. הפרטים אינם מצרפים אותי לרשימת דיוור שיווקית.</span></label>
+<p class="note">80₪ לזוג. להמשך התשלום יש להשתמש באותה כתובת דוא״ל ובאותו טלפון גם ב־Grow. מילוי הטופס לבדו אינו אישור תשלום או שמירת מקום.</p>
+<button type="submit">שמירת פרטים והמשך לתשלום</button><p id="message" class="message" role="status" aria-live="polite"></p>
+<a id="payment-link" class="payment" hidden target="_blank" rel="noopener noreferrer">להמשך לתשלום ב־Grow ↗</a>
+</form>
+<script>
+const form = document.getElementById('registration-form');
+const message = document.getElementById('message');
+const payment = document.getElementById('payment-link');
+const requestId = crypto.randomUUID();
+const errors = { INVALID_NAME:'נא להזין שם מלא.', INVALID_EMAIL:'נא לבדוק את כתובת הדוא״ל.', INVALID_PHONE:'נא להזין מספר טלפון ישראלי תקין.', INVALID_CONSENT:'נא לאשר את השימוש בפרטים לצורך הסדנה.', SOLD_OUT:'ההרשמה לסדנה מלאה.', FORM_EXPIRED:'תוקף הטופס פג. נא לרענן את העמוד ולנסות שוב.' };
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const button = form.querySelector('button');
+  button.disabled = true; message.textContent = 'שומר את הפרטים…';
+  const data = Object.fromEntries(new FormData(form));
+  data.consent = form.elements.consent.checked; data.requestId = requestId; data.nonce = '<?= nonce ?>';
+  google.script.run.withSuccessHandler(result => {
+    if (!result || result.saved !== true) return fail({message:'SAVE_FAILED'});
+    message.style.color = '#126653'; message.textContent = 'הפרטים נשמרו. יש להשלים את התשלום כדי לאשר את ההרשמה.';
+    payment.href = result.checkout; payment.hidden = false; button.hidden = true;
+  }).withFailureHandler(fail).registerWorkshop(data);
+  function fail(error) {
+    const code = Object.keys(errors).find(key => String(error.message).includes(key));
+    message.style.color = '#9b2020'; message.textContent = errors[code] || 'הפרטים לא נשמרו. נא לנסות שוב או לפנות לשניאור.';
+    button.disabled = false;
+  }
+});
+</script></body></html>
