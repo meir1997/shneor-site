@@ -1,7 +1,7 @@
 const WORKSHOP = Object.freeze({
   id: 'hora-yael-2026-10-14', title: 'הורה יעיל', price: 80, capacity: 30,
   startsAt: '2026-10-14T21:30:00+03:00', reminderDate: '2026-10-13',
-  checkout: 'https://pay.grow.link/MTA2NDUy~a917e3813524dc698103a5d01894016e-NDA3ODM4NQ'
+  checkout: 'https://www.paperless.tax/invoice?sID=f5lnDagHVYI_7AAX-6rk7Fu3RPaoeoaTzeeucwA86rQ0IMn-oUeEjQ'
 });
 const HEADERS = ['מזהה הרשמה', 'נרשם בתאריך', 'שם מלא', 'דוא״ל', 'טלפון',
   'סטטוס תשלום', 'סכום', 'מזהה עסקה', 'אישור שימוש בפרטים', 'קישור זום נשלח', 'הערה'];
