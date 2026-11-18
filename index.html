@@ -3,490 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שניאור רוכברגר | חינוך חברתי, שיח וערכים</title>
-    <meta name="description" content="שניאור רוכברגר - חוקר וחינוך בתחום החינוך החברתי-ערכי בציבור החרדי. בלוג חינוך, קלפי שיח ומשאבים לחינוך חברתי חרדי.">
-    <meta name="keywords" content="שניאור רוכברגר, חינוך חברתי, חינוך חברתי חרדי, קלפי שיח, בלוג חינוך, חינוך ערכים, חינוך בלתי פורמלי">
+    <title>שניאור רוכברגר | יועץ ארגוני חינוכי למוסדות וארגונים בציבור החרדי</title>
+    <meta name="description" content="שניאור רוכברגר – יועץ ארגוני חרדי למוסדות חינוך, עמותות וארגונים בציבור החרדי. ליווי הנהלות, פיתוח צוותים, תכנון אסטרטגי וחינוך חברתי-ערכי. בוגר מכון מנדל ומרצה למדיניות ציבורית.">
+    <meta name="keywords" content="יועץ ארגוני חרדי, יועץ ארגוני חינוכי, ייעוץ ארגוני למוסדות חינוך, ייעוץ ארגוני חרדי, ליווי מנהלים חרדים, ייעוץ לתלמודי תורה, ייעוץ לסמינרים, פיתוח צוותי חינוך, חינוך חברתי חרדי, שניאור רוכברגר">
     <meta name="author" content="שניאור רוכברגר">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="שניאור רוכברגר | חינוך חברתי, שיח וערכים">
-    <meta property="og:description" content="מוביל את תחום החינוך החברתי-ערכי בציבור החרדי, מזכ&quot;ל תנועת הנוער אחוות, מרצה במוסדות אקדמיים למדיניות ציבורית וחינוך חברתי, ויוצר קלפי שיח.">
+    <link rel="canonical" href="https://lehanech.co.il/">
+    <meta property="og:title" content="שניאור רוכברגר | יועץ ארגוני חינוכי בציבור החרדי">
+    <meta property="og:description" content="ייעוץ וליווי ארגוני למוסדות חינוך, עמותות וארגונים בציבור החרדי – מאבחון ותכנון ועד הטמעה בשטח.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lehanech.co.il">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:url" content="https://lehanech.co.il/">
+    <meta property="og:image" content="https://lehanech.co.il/images/shneor.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="שניאור רוכברגר | חינוך חברתי וערכים">
+    <meta name="twitter:title" content="שניאור רוכברגר | יועץ ארגוני חינוכי בציבור החרדי">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20261118">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="a11y.css?v=1">
     <script src="a11y-widget.js?v=1" defer></script>
 </head>
-<body>
+<body class="home">
     <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="ניווט ראשי">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="10" y1="5" x2="10" y2="17"/>
-                </svg>
-                <span>שניאור רוכברגר</span>
+            <a href="#home" class="logo">
+                <span class="logo-mark" aria-hidden="true">ש״ר</span>
+                <span class="logo-text">
+                    <span class="logo-name">שניאור רוכברגר</span>
+                    <span class="logo-role">ייעוץ ארגוני · חינוך</span>
+                </span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="תפריט">&#9776;</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="תפריט" aria-controls="navLinks">&#9776;</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">בית</a></li>
+                <li><a href="#services">תחומי ייעוץ</a></li>
+                <li><a href="#approach">שיטת העבודה</a></li>
                 <li><a href="#about">אודות</a></li>
-                <li><a href="blog.html">בלוג</a></li>
-                <li><a href="podcast.html">פודקאסט</a></li>
-                <li><a href="videos.html">סרטונים</a></li>
-                <li><a href="workshop.html">סדנה</a></li>
-                <li><a href="#articles">מאמרים</a></li>
-                <li><a href="#social">חינוך חברתי</a></li>
-                <li><a href="#shop">קלפי שיח</a></li>
-                <li><a href="#contact">צור קשר</a></li>
+                <li><a href="#knowledge">מאמרים ותוכן</a></li>
+                <li><a href="#faq">שאלות נפוצות</a></li>
+                <li class="nav-cta-item"><a href="#contact" class="nav-cta">לתיאום שיחה</a></li>
             </ul>
         </div>
     </nav>
 
     <main id="main-content" tabindex="-1">
-    <!-- Hero Section -->
+
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-tag">פשוט לחנך · בלוג חינוך</span>
-            <h1>שניאור רוכברגר</h1>
-            <p class="hero-subtitle">מחנך, חוקר ויוזם חברתי</p>
-            <p class="hero-desc">מוביל את תחום החינוך החברתי-ערכי בציבור החרדי, מזכ"ל תנועת הנוער "אחוות", מרצה במוסדות אקדמיים למדיניות ציבורית וחינוך חברתי, ויוצר קלפי "שיח"</p>
-            <div class="hero-buttons">
-                <a href="#blog" class="btn btn-primary">קראו את הבלוג</a>
-                <a href="#about" class="btn btn-outline">הכירו אותי</a>
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <p class="eyebrow eyebrow-light">ייעוץ ארגוני · מוסדות חינוך · ציבור חרדי</p>
+                <h1>ייעוץ ארגוני למוסדות חינוך<br><span>ולארגונים בציבור החרדי</span></h1>
+                <p class="hero-lead">שניאור רוכברגר מלווה הנהלות, מנהלים וצוותים בבניית ארגון חינוכי יציב, ממוקד ובעל השפעה. ליווי שמחבר כלים מקצועיים מעולם הייעוץ והמדיניות עם היכרות עמוקה עם החברה החרדית מבפנים.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">לתיאום שיחת היכרות</a>
+                    <a href="#services" class="btn btn-ghost">תחומי הייעוץ</a>
+                </div>
+            </div>
+            <figure class="hero-portrait">
+                <img src="images/shneor.jpg" alt="שניאור רוכברגר, יועץ ארגוני חינוכי" width="512" height="512" fetchpriority="high">
+                <figcaption>
+                    <strong>שניאור זלמן רוכברגר</strong>
+                    <span>יועץ ארגוני · מרצה למדיניות ציבורית</span>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="credentials">
+            <div class="container credentials-inner">
+                <span class="credentials-label">רקע מקצועי</span>
+                <ul>
+                    <li>בוגר מכון מנדל למנהיגות</li>
+                    <li>ממונה חינוך חברתי-ערכי, משרד החינוך</li>
+                    <li>מרצה לתואר שני, אוניברסיטת חיפה</li>
+                    <li>מרצה במכללות אורנים, שאנן והרצוג</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Services -->
+    <section id="services" class="section services-section">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow">תחומי ייעוץ</p>
+                <h2 class="section-title">ליווי מקצועי לארגון החינוכי שלכם</h2>
+                <p class="section-subtitle">כל תהליך נבנה סביב האתגר האמיתי של המוסד – לא סביב תבנית מוכנה מראש.</p>
+            </div>
+
+            <div class="services-grid">
+                <article class="service-card">
+                    <span class="service-num">01</span>
+                    <h3>ייעוץ ארגוני למוסדות חינוך</h3>
+                    <p>אבחון ארגוני, הגדרת חזון ויעדים, בניית תוכנית עבודה ומבנה ארגוני שמאפשר לצוות לעבוד בתיאום ולהתמקד במה שחשוב.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-num">02</span>
+                    <h3>ליווי מנהלים והנהלות</h3>
+                    <p>ליווי אישי למנהלים, רכזים ובעלי תפקידים: קבלת החלטות, ניהול צוות, התמודדות עם משברים והובלת שינוי מתוך יציבות.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-num">03</span>
+                    <h3>פיתוח צוותים והכשרות</h3>
+                    <p>השתלמויות ותהליכי למידה לצוותי הוראה וחינוך – חיזוק המוטיבציה, תקשורת בצוות ושפה חינוכית משותפת.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-num">04</span>
+                    <h3>חינוך חברתי-ערכי ואקלים מוסדי</h3>
+                    <p>בניית תוכניות חינוך חברתי, שיפור האקלים במוסד וחיזוק השייכות של תלמידים, הורים וצוות – בשפה ובערכים של הקהילה.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-num">05</span>
+                    <h3>תכנון אסטרטגי ומדיניות</h3>
+                    <p>ליווי עמותות, ארגונים ומחלקות חינוך בתכנון אסטרטגי, בניית מדיניות ותוכניות רב-שנתיות, מתוך ניסיון בעבודה מול גופים ציבוריים.</p>
+                </article>
+                <article class="service-card">
+                    <span class="service-num">06</span>
+                    <h3>הרצאות וסדנאות</h3>
+                    <p>הרצאות לצוותים, להנהלות ולהורים בנושאי חינוך, הורות, ניהול חינוכי וחינוך חברתי – כמפגש בודד או כחלק מתהליך.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who -->
+    <section id="clients" class="section clients-section">
+        <div class="container clients-grid">
+            <div>
+                <p class="eyebrow">למי זה מתאים</p>
+                <h2 class="section-title align-start">יועץ ארגוני שמכיר את העולם החרדי מבפנים</h2>
+                <p class="clients-lead">מוסד חינוכי בציבור החרדי פועל בתוך מערכת ייחודית של ערכים, הנהגה רוחנית, הורים וקהילה. ייעוץ שלא מכיר את כל אלה מתקשה להחזיק בשטח. הליווי בנוי כך שיתאים לשפה, לקצב ולערכים של המוסד.</p>
+            </div>
+            <ul class="clients-list">
+                <li>תלמודי תורה ובתי ספר</li>
+                <li>סמינרים ומוסדות חינוך לבנות</li>
+                <li>ישיבות ומסגרות לנוער</li>
+                <li>עמותות וארגונים חברתיים</li>
+                <li>מסגרות חינוך בלתי פורמלי</li>
+                <li>רשויות ומחלקות חינוך</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="section approach-section">
+        <div class="container">
+            <div class="section-head">
+                <p class="eyebrow eyebrow-light">שיטת העבודה</p>
+                <h2 class="section-title">מאבחון ועד הטמעה בשטח</h2>
+                <p class="section-subtitle">תהליך מסודר, עם יעדים ברורים ומדדים להצלחה, שנשאר בארגון גם אחרי שהליווי מסתיים.</p>
+            </div>
+            <ol class="process">
+                <li>
+                    <span class="process-step">שלב 1</span>
+                    <h3>היכרות ואבחון</h3>
+                    <p>שיחות עם ההנהלה והצוות, מיפוי של נקודות החוזק ושל האתגרים, והגדרה משותפת של מה רוצים לשנות.</p>
+                </li>
+                <li>
+                    <span class="process-step">שלב 2</span>
+                    <h3>תכנון</h3>
+                    <p>בניית תוכנית עבודה ממוקדת: יעדים, אחריות, לוחות זמנים ומדדים שאפשר לעקוב אחריהם.</p>
+                </li>
+                <li>
+                    <span class="process-step">שלב 3</span>
+                    <h3>ליווי ויישום</h3>
+                    <p>מפגשי ליווי קבועים עם ההנהלה והצוותים, הנחיית תהליכים, השתלמויות ופתרון בעיות בזמן אמת.</p>
+                </li>
+                <li>
+                    <span class="process-step">שלב 4</span>
+                    <h3>הערכה והטמעה</h3>
+                    <p>בדיקת התוצאות מול היעדים, חיזוק מה שעובד והעברת הכלים לידי הצוות, כדי שהשינוי יימשך.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- About -->
     <section id="about" class="section about-section">
-        <div class="container">
-            <h2 class="section-title">אודות</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="images/shneor.jpg" alt="שניאור רוכברגר" class="about-photo">
-                </div>
-                <div class="about-text">
-                    <h3>שניאור זלמן רוכברגר</h3>
-                    <p>בוגר ישיבות חב"ד ומכון מנדל למנהיגות.</p>
-                    <p>ממונה על החינוך החברתי-ערכי במחוז החרדי במשרד החינוך, ומזכ"ל תנועת הנוער "אחוות" — תנועה חרדית שמשלבת זהות תורנית עם מעורבות ואחריות חברתית.</p>
-                    <p>מרצה לתואר שני במדיניות ציבורית באוניברסיטת חיפה וכן במכללות אורנים, שאנן והרצוג, בתחומי מדיניות ציבורית וחינוך חברתי.</p>
-                    <p>חוקר המתמחה בחינוך בלתי-פורמלי חרדי ובמוטיבציה של מורות חרדיות. יוצר קלפי "שיח" ומתנדב בארגונים שונים.</p>
+        <div class="container about-grid">
+            <div class="about-image">
+                <img src="images/shneor.jpg" alt="שניאור רוכברגר" class="about-photo" width="512" height="512" loading="lazy">
+            </div>
+            <div class="about-text">
+                <p class="eyebrow">אודות</p>
+                <h2 class="section-title align-start">שניאור זלמן רוכברגר</h2>
+                <p class="about-lead">יועץ ארגוני וחינוכי, חוקר ומרצה, שפועל שנים בחיבור שבין מערכות חינוך, מדיניות ציבורית והחברה החרדית.</p>
+                <p>בוגר ישיבות חב"ד ומכון מנדל למנהיגות. ממונה על החינוך החברתי-ערכי במחוז החרדי במשרד החינוך, ומלווה מוסדות, מנהלים וצוותים בבניית תוכניות חינוכיות ובהובלת שינוי.</p>
+                <p>מרצה לתואר שני במדיניות ציבורית באוניברסיטת חיפה וכן במכללות אורנים, שאנן והרצוג. חוקר המתמחה בחינוך בלתי-פורמלי בציבור החרדי ובמוטיבציה של מורות חרדיות.</p>
 
-                    <div class="achievements">
-                        <div class="achievement-card">
-                            <div class="achievement-number" id="blogCount">93+</div>
-                            <div class="achievement-label">טורי חינוך</div>
-                        </div>
-                        <div class="achievement-card">
-                            <div class="achievement-number">7,000+</div>
-                            <div class="achievement-label">משתתפים בקורסים בעשור האחרון</div>
-                        </div>
-                        <div class="achievement-card">
-                            <div class="achievement-number">4</div>
-                            <div class="achievement-label">סטים של קלפי שיח</div>
-                        </div>
+                <dl class="stats">
+                    <div class="stat">
+                        <dt>7,000+</dt>
+                        <dd>משתתפים בקורסים ובהכשרות בעשור האחרון</dd>
                     </div>
-                </div>
+                    <div class="stat">
+                        <dt id="blogCount">90+</dt>
+                        <dd>טורים על חינוך, הורות והנהגה</dd>
+                    </div>
+                    <div class="stat">
+                        <dt>M.A.</dt>
+                        <dd>מרצה לתואר שני במדיניות ציבורית</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <div class="container field">
+            <div class="field-head">
+                <h3>מהשטח</h3>
+                <p>רגעים מהעשייה החינוכית</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item"><img src="images/social/2.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/4.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/6.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/photo_8_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_9_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_14_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_15_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_18_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_19_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_20_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_23_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_25_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_27_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_28_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_30_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_32_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+            </div>
+            <div class="gallery-actions">
+                <button class="btn btn-text" id="galleryToggle" type="button" onclick="toggleGallery()">לכל התמונות</button>
             </div>
         </div>
     </section>
 
-    <!-- Blog Section (preview) -->
-    <section id="blog" class="section blog-section">
+    <!-- Knowledge -->
+    <section id="knowledge" class="section knowledge-section">
         <div class="container">
-            <h2 class="section-title">פשוט לחנך - הבלוג</h2>
-            <p class="section-subtitle">טורים שבועיים על חינוך, הורות וערכים</p>
+            <div class="section-head section-head-row">
+                <div>
+                    <p class="eyebrow">מאמרים ותוכן</p>
+                    <h2 class="section-title align-start">פשוט לחנך – טורים ומחשבות</h2>
+                </div>
+                <a href="blog.html" class="link-arrow">לכל הטורים</a>
+            </div>
 
             <div class="blog-grid" id="blogGrid" data-limit="3">
                 <!-- Blog posts inserted by JS -->
             </div>
 
-            <div class="section-cta">
-                <a href="blog.html" class="btn btn-primary">לכל הטורים</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Podcast Section -->
-    <section id="podcast" class="section podcast-section">
-        <div class="container">
-            <h2 class="section-title">פודקאסט · פשוט לחנך</h2>
-            <p class="section-subtitle">סדרת שיחות עם רבנים ואנשי מקצוע על חינוך יהודי לחיים מלאים ומספקים</p>
-
-            <div class="podcast-intro">
-                <div class="podcast-cover">
-                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/d8/be/38/d8be386f-e793-423f-d0a4-a94fd8553999/mza_7467970480173247344.jpg/600x600bb.jpg" alt="פשוט לחנך - פודקאסט" loading="lazy">
-                </div>
-                <div class="podcast-intro-text">
-                    <h3>על הפודקאסט</h3>
-                    <p>בסדרה הזו מארח שניאור רוכברגר רבנים ואנשי מקצוע, וביחד איתם מנסה להבין איך ניתן לחנך את ילדינו לחיים יהודיים מלאים ומספקים — חיים שיש בהם תורה ויראת שמיים, וגם מלאכה ודרך ארץ.</p>
-                </div>
-            </div>
-
-            <div class="episodes-list" id="episodesList" data-limit="3" data-compact="1">
-                <!-- Episodes inserted by JS from podcast-data.js -->
-            </div>
-
-            <div class="section-cta">
-                <a href="podcast.html" class="btn btn-primary">לכל הפרקים</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Videos Section (preview) -->
-    <section id="videos" class="section videos-section">
-        <div class="container">
-            <h2 class="section-title">סרטונים</h2>
-            <p class="section-subtitle">קטעי וידאו קצרים מהשטח החינוכי</p>
-
-            <div class="videos-grid videos-grid-compact">
-                <article class="video-card">
-                    <button type="button" class="video-poster" data-src="videos/1.mp4" aria-label="הפעל וידאו: ארבעה בנים, ארבעה גילאים">
-                        <img src="videos/1.jpg" alt="" loading="lazy">
-                        <span class="play-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                    <h3 class="video-title">ארבעה בנים, ארבעה גילאים — איך עוברים איתם ליל סדר שלם?</h3>
-                </article>
-
-                <article class="video-card">
-                    <button type="button" class="video-poster" data-src="videos/2.mp4" aria-label="הפעל וידאו: האקלים המשפחתי בחופש - חלק א">
-                        <img src="videos/2.jpg" alt="" loading="lazy">
-                        <span class="play-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                    <h3 class="video-title">האקלים המשפחתי בחופש &mdash; חלק א&apos;</h3>
-                </article>
-
-                <article class="video-card">
-                    <button type="button" class="video-poster" data-src="videos/3.mp4" aria-label="הפעל וידאו: האקלים המשפחתי בחופש - חלק ב">
-                        <img src="videos/3.jpg" alt="" loading="lazy">
-                        <span class="play-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                    <h3 class="video-title">האקלים המשפחתי בחופש &mdash; חלק ב&apos;</h3>
-                </article>
-
-                <article class="video-card">
-                    <button type="button" class="video-poster" data-src="videos/4.mp4" aria-label="הפעל וידאו: האקלים המשפחתי בחופש - חלק ג">
-                        <img src="videos/4.jpg" alt="" loading="lazy">
-                        <span class="play-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        </span>
-                    </button>
-                    <h3 class="video-title">האקלים המשפחתי בחופש &mdash; חלק ג&apos;</h3>
-                </article>
-            </div>
-
-            <div class="section-cta">
-                <a href="videos.html" class="btn btn-outline">לכל הסרטונים</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Articles Section -->
-    <section id="articles" class="section articles-section">
-        <div class="container">
-            <h2 class="section-title">מאמרים מחקריים</h2>
-            <p class="section-subtitle">מחקר וכתיבה אקדמית בתחום החינוך הבלתי-פורמלי החרדי</p>
-
-            <div class="articles-intro">
-                <p>מאמרים, מחקרים ומסמכי עמדה בתחומי החינוך החברתי-ערכי, החינוך הבלתי-פורמלי בציבור החרדי, מוטיבציה של מורות, מדיניות ציבורית וחינוך לערכים.</p>
-            </div>
-
-            <div class="articles-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                    <polyline points="10 9 9 9 8 9"/>
-                </svg>
-                <h3>בקרוב</h3>
-                <p>אסופת המאמרים בשלבי הכנה. רוצה לקבל עדכון כשהיא תעלה לאתר? <a href="#contact">השאירו פרטים</a>.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Education Section -->
-    <section id="social" class="section social-section">
-        <div class="container">
-            <h2 class="section-title">חינוך חברתי</h2>
-            <p class="section-subtitle">חינוך שמגיע מהחיים – לא מהספרים</p>
-
-            <div class="social-intro-grid">
-                <div class="social-intro-text">
-                    <h3>מה זה חינוך חברתי?</h3>
-                    <p>חינוך חברתי הוא תהליך חינוכי שמתרחש בתוך מסגרת חברתית – לא בכיתה, אלא בחיים. הוא מתמקד בפיתוח הזהות האישית, בחיזוק הקשרים הבינאישיים ובהקניית ערכים דרך התנסות אמיתית, דינמיקה קבוצתית ומעורבות בקהילה.</p>
-                    <p>בניגוד לחינוך הפורמלי שמעביר ידע לפי תוכנית לימודים קבועה, החינוך החברתי "לומד לעשות" – הילד מתנסה, טועה, מצליח וצומח בתוך קבוצת שייכות אמיתית.</p>
-                    <p>בציבור החרדי, תחום זה מקבל משמעות עמוקה במיוחד: הוא הגשר בין הזהות התורנית לבין האחריות החברתית, בין הפרט לקהילה.</p>
-                </div>
-                <div class="social-pillars">
-                    <div class="pillar-card">
-                        <div class="pillar-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <h4>שייכות וקהילה</h4>
-                        <p>חיזוק תחושת השייכות, צמצום ניכור, ויצירת רשת תמיכה חברתית אמיתית</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        </div>
-                        <h4>ערכים מהחיים</h4>
-                        <p>ערכים שנלמדים בהתנסות ולא בהטפה – חסד, אחריות, כבוד ואמת שבאים מבפנים</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="pillar-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                        </div>
-                        <h4>זהות וגדילה</h4>
-                        <p>העלאת הדימוי העצמי, ביסוס תחושת מסוגלות ועצמאות אצל ילדים ומתבגרים</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="social-vs">
-                <div class="vs-card formal">
-                    <h4>חינוך פורמלי</h4>
-                    <ul>
-                        <li>תוכנית לימודים קבועה ומובנית</li>
-                        <li>העברת ידע מהמורה לתלמיד</li>
-                        <li>הערכה דרך ציונים ובחינות</li>
-                        <li>מסגרת כיתתית קבועה</li>
-                        <li>מיקוד בהישגים אקדמיים</li>
-                    </ul>
-                </div>
-                <div class="vs-divider">
-                    <span>לעומת</span>
-                </div>
-                <div class="vs-card social">
-                    <h4>חינוך חברתי</h4>
-                    <ul>
-                        <li>למידה דרך התנסות ומעורבות</li>
-                        <li>צמיחה בתוך קבוצת שייכות</li>
-                        <li>הצלחה נמדדת בצמיחה אישית</li>
-                        <li>גמישות ותגובה לצרכי הפרט</li>
-                        <li>מיקוד בערכים ובאופי</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Photo Gallery -->
-            <div class="social-gallery-header">
-                <h3>בשטח</h3>
-                <p>רגעים מהעשייה החינוכית</p>
-            </div>
-            <div class="gallery-grid" id="galleryGrid">
-                <div class="gallery-item"><img src="images/social/2.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/social/4.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/social/6.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_8_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_9_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_14_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_15_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_18_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_19_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_20_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_23_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_25_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_27_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_28_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_30_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_32_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_34_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_37_2026-05-01_15-30-47.jpg" alt="חינוך חברתי" loading="lazy"></div>
-            </div>
-
-            <div class="gallery-actions">
-                <button class="btn btn-primary" id="galleryToggle" onclick="toggleGallery()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    לכל התמונות
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shop Section -->
-    <section id="shop" class="section shop-section">
-        <div class="container">
-            <h2 class="section-title">קלפי שיח</h2>
-            <p class="section-subtitle">הגשר לעולמם של ילדים ומתבגרים. כלי מקצועי, ערכי ומהנה שמאפשר שיח פתוח וכנה</p>
-
-            <div class="shop-intro">
-                <p>כמי שמוביל את תחום החינוך החברתי-ערכי בציבור החרדי, הקמתי את "שיח" מתוך שליחות והבנה שהחיבור בין בני משפחה, חברים וקהילה הוא הבסיס לחוסן הנפשי והרוחני שלנו.</p>
-                <p>כל סט קלפים נבנה מתוך מחשבה מעמיקה על השפה, הערכים והוויזואליה שמתאימים בדיוק לציבור שלנו.</p>
-            </div>
-
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-badge bestseller">הנמכר ביותר</div>
-                    <div class="product-image">
-                        <img src="images/echad-mishelanu.jpg" alt="אחד משלנו">
-                    </div>
-                    <div class="product-info">
-                        <h3>אחד משלנו</h3>
-                        <p>קלפי שיח לחיזוק הקשר והשייכות בקהילה</p>
-                        <div class="product-price">
-                            <span class="price-sale">200 &#8362;</span>
-                            <span class="price-original">250 &#8362;</span>
-                        </div>
-                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%90%D7%97%D7%93%20%D7%9E%D7%A9%D7%9C%D7%A0%D7%95%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            הזמנה
-                        </a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/siah-zugiot.jpg" alt="שיח לזוגיות">
-                    </div>
-                    <div class="product-info">
-                        <h3>שיח לזוגיות</h3>
-                        <p>קלפים לחיזוק התקשורת הזוגית ויצירת רגעי קירבה</p>
-                        <div class="product-price">
-                            <span class="price-sale">200 &#8362;</span>
-                            <span class="price-original">250 &#8362;</span>
-                        </div>
-                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A9%D7%99%D7%97%20%D7%9C%D7%96%D7%95%D7%92%D7%99%D7%95%D7%AA%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            הזמנה
-                        </a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/siah-arachim.jpg" alt="שיח לערכים">
-                    </div>
-                    <div class="product-info">
-                        <h3>שיח לערכים</h3>
-                        <p>קלפים לשיח ערכי מעמיק סביב שולחן השבת ובאירועים</p>
-                        <div class="product-price">
-                            <span class="price-sale">200 &#8362;</span>
-                            <span class="price-original">250 &#8362;</span>
-                        </div>
-                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A9%D7%99%D7%97%20%D7%9C%D7%A2%D7%A8%D7%9B%D7%99%D7%9D%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            הזמנה
-                        </a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/klafei-chosen.jpg" alt="קלפי חוסן">
-                    </div>
-                    <div class="product-info">
-                        <h3>קלפי חוסן</h3>
-                        <p>כלי לחיזוק החוסן הנפשי והרגשי בקרב ילדים ומתבגרים</p>
-                        <div class="product-price">
-                            <span class="price-sale">200 &#8362;</span>
-                            <span class="price-original">250 &#8362;</span>
-                        </div>
-                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A7%D7%9C%D7%A4%D7%99%20%D7%97%D7%95%D7%A1%D7%9F%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            הזמנה
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="shop-cta">
-                <a href="card-instructions.html" class="btn btn-primary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="5" x2="10" y2="17"/></svg>
-                    הוראות שימוש בקלפי שיח
+            <div class="resources">
+                <a href="podcast.html" class="resource">
+                    <span class="resource-kind">פודקאסט</span>
+                    <strong>פשוט לחנך</strong>
+                    <span>שיחות עם רבנים ואנשי מקצוע על חינוך יהודי לחיים מלאים</span>
+                </a>
+                <a href="#contact" class="resource">
+                    <span class="resource-kind">מחקר</span>
+                    <strong>מאמרים מחקריים</strong>
+                    <span>חינוך בלתי פורמלי חרדי, מוטיבציה של מורות ומדיניות חינוך – בקרוב באתר</span>
+                </a>
+                <a href="videos.html" class="resource">
+                    <span class="resource-kind">וידאו</span>
+                    <strong>סרטונים</strong>
+                    <span>קטעים קצרים על חינוך והורות</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- FAQ -->
+    <section id="faq" class="section faq-section">
+        <div class="container faq-grid">
+            <div>
+                <p class="eyebrow">שאלות נפוצות</p>
+                <h2 class="section-title align-start">על ייעוץ ארגוני למוסדות חינוך</h2>
+            </div>
+            <div class="faq-list">
+                <details>
+                    <summary>מה עושה יועץ ארגוני במוסד חינוכי?</summary>
+                    <p>יועץ ארגוני עוזר להנהלה לראות את התמונה המלאה של המוסד: איך מתקבלות החלטות, איך הצוות עובד יחד, איפה נתקעים ומה צריך כדי להתקדם. יחד בונים תוכנית עבודה ומלווים את היישום שלה בשטח.</p>
+                </details>
+                <details>
+                    <summary>האם הליווי מותאם למוסדות בציבור החרדי?</summary>
+                    <p>כן, זה לב העבודה. שניאור, בוגר ישיבות חב"ד, עובד שנים עם מוסדות ומסגרות בציבור החרדי, ולכן הליווי נבנה בשפה, בקצב ובערכים של המוסד ובתיאום עם ההנהגה שלו.</p>
+                </details>
+                <details>
+                    <summary>מי יכול לפנות?</summary>
+                    <p>מנהלים ומנהלות של מוסדות חינוך, הנהלות של עמותות וארגונים, רכזים ובעלי תפקידים, וגם מחלקות חינוך ברשויות שעובדות מול הציבור החרדי.</p>
+                </details>
+                <details>
+                    <summary>איך מתחיל תהליך?</summary>
+                    <p>בשיחת היכרות ללא התחייבות. בשיחה מבינים מה האתגר, מה כבר נוסה ומה המטרה, ועל בסיס זה מציעים מסגרת ליווי שמתאימה למוסד.</p>
+                </details>
+                <details>
+                    <summary>אפשר להזמין רק הרצאה או השתלמות לצוות?</summary>
+                    <p>בהחלט. אפשר להזמין הרצאה או סדנה בודדת לצוות, להנהלה או להורים, ואפשר לשלב אותה כחלק מתהליך ליווי רחב יותר.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">צור קשר</h2>
-            <p class="section-subtitle">להזמנת הרצאות, סדנאות, שיתופי פעולה – או סתם לשאלה</p>
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <p class="eyebrow eyebrow-light">יצירת קשר</p>
+                <h2>בואו נדבר על הארגון שלכם</h2>
+                <p>ספרו בכמה מילים על המוסד ועל מה שמעסיק אתכם, ונחזור אליכם לתיאום שיחת היכרות.</p>
 
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>בואו נדבר</h3>
-                    <p>שמח לשמוע ממך בכל עניין – חינוך, קלפי שיח, הרצאות או כל רעיון לשיתוף פעולה.</p>
-
-                    <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <div class="contact-detail-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14v2.92z"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-detail-label">טלפון / וואטסאפ</div>
-                                <a href="https://wa.me/972543407902" target="_blank" rel="noopener" class="contact-detail-value">054-340-7902</a>
-                            </div>
+                <div class="contact-details">
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14v2.92z"/></svg>
                         </div>
-                        <div class="contact-detail-item">
-                            <div class="contact-detail-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            </div>
-                            <div>
-                                <div class="contact-detail-label">אימייל</div>
-                                <a href="mailto:Shneori770@gmail.com" class="contact-detail-value">Shneori770@gmail.com</a>
-                            </div>
+                        <div>
+                            <div class="contact-detail-label">טלפון / וואטסאפ</div>
+                            <a href="https://wa.me/972543407902" target="_blank" rel="noopener" class="contact-detail-value" dir="ltr">054-340-7902</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="contact-detail-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-detail-label">אימייל</div>
+                            <a href="mailto:Shneori770@gmail.com" class="contact-detail-value">Shneori770@gmail.com</a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
-                    <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
-                    <input type="checkbox" name="botcheck" style="display:none">
+            <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+                <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+                <input type="checkbox" name="botcheck" style="display:none">
+                <div class="form-row">
                     <div class="form-group">
                         <label for="contactName">שם מלא</label>
-                        <input type="text" id="contactName" name="name" placeholder="ישראל ישראלי" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="contactPhone">טלפון</label>
-                            <input type="tel" id="contactPhone" name="phone" placeholder="050-0000000">
-                        </div>
-                        <div class="form-group">
-                            <label for="contactEmail">אימייל</label>
-                            <input type="email" id="contactEmail" name="email" placeholder="example@mail.com">
-                        </div>
+                        <input type="text" id="contactName" name="name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="contactSubject">נושא</label>
-                        <select id="contactSubject" name="subject">
-                            <option value="">בחר נושא...</option>
-                            <option value="lecture">הזמנת הרצאה / סדנה</option>
-                            <option value="cards">קלפי שיח</option>
-                            <option value="collaboration">שיתוף פעולה</option>
-                            <option value="other">אחר</option>
-                        </select>
+                        <label for="contactOrg">מוסד / ארגון</label>
+                        <input type="text" id="contactOrg" name="organization" autocomplete="organization">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactPhone">טלפון</label>
+                        <input type="tel" id="contactPhone" name="phone" autocomplete="tel" dir="ltr">
                     </div>
                     <div class="form-group">
-                        <label for="contactMessage">תוכן ההודעה</label>
-                        <textarea id="contactMessage" name="message" rows="5" placeholder="כתוב את ההודעה שלך כאן..." required></textarea>
+                        <label for="contactEmail">אימייל</label>
+                        <input type="email" id="contactEmail" name="email" autocomplete="email" dir="ltr">
                     </div>
-                    <button type="submit" class="btn btn-primary form-submit">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        שליחה
-                    </button>
-                    <div class="form-success" id="formSuccess" style="display:none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        ההודעה נשלחה! נחזור אליך בהקדם.
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="form-group">
+                    <label for="contactSubject">נושא הפנייה</label>
+                    <select id="contactSubject" name="subject">
+                        <option value="">בחרו נושא...</option>
+                        <option value="consulting">ייעוץ ארגוני למוסד או לארגון</option>
+                        <option value="management">ליווי מנהלים והנהלה</option>
+                        <option value="staff">פיתוח צוותים והשתלמויות</option>
+                        <option value="lecture">הרצאה או סדנה</option>
+                        <option value="other">אחר</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contactMessage">במה נוכל לעזור?</label>
+                    <textarea id="contactMessage" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit">שליחת פנייה</button>
+                <div class="form-success" id="formSuccess" style="display:none" role="status">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    הפנייה נשלחה. נחזור אליכם בהקדם.
+                </div>
+            </form>
         </div>
     </section>
 
@@ -498,17 +390,15 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>שניאור רוכברגר</h3>
-                    <p>חינוך, שיח וערכים</p>
+                    <p>ייעוץ ארגוני וחינוכי למוסדות וארגונים בציבור החרדי</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#home">בית</a>
+                    <a href="#services">תחומי ייעוץ</a>
                     <a href="#about">אודות</a>
                     <a href="blog.html">בלוג</a>
                     <a href="podcast.html">פודקאסט</a>
                     <a href="videos.html">סרטונים</a>
-                    <a href="#articles">מאמרים</a>
-                    <a href="#social">חינוך חברתי</a>
-                    <a href="#shop">קלפי שיח</a>
+                    <a href="#contact">צור קשר</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -520,41 +410,57 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "שניאור רוכברגר",
-      "url": "https://lehanech.co.il",
-      "image": "https://lehanech.co.il/images/shneor.jpg",
-      "description": "מוביל את תחום החינוך החברתי-ערכי בציבור החרדי, מזכ\"ל תנועת הנוער אחוות ומרצה במוסדות אקדמיים למדיניות ציבורית וחינוך חברתי",
-      "jobTitle": "מחנך, חוקר ומרצה",
-      "sameAs": [
-        "https://lehanech.co.il"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "משרד החינוך"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "שניאור רוכברגר - פשוט לחנך",
-      "url": "https://lehanech.co.il",
-      "description": "בלוג חינוך וקלפי שיח לחינוך חברתי חרדי",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://lehanech.co.il?search={search_term_string}"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://lehanech.co.il/#person",
+          "name": "שניאור רוכברגר",
+          "alternateName": "שניאור זלמן רוכברגר",
+          "url": "https://lehanech.co.il/",
+          "image": "https://lehanech.co.il/images/shneor.jpg",
+          "jobTitle": "יועץ ארגוני וחינוכי",
+          "description": "יועץ ארגוני חינוכי למוסדות חינוך, עמותות וארגונים בציבור החרדי. בוגר מכון מנדל למנהיגות ומרצה למדיניות ציבורית.",
+          "alumniOf": { "@type": "Organization", "name": "מכון מנדל למנהיגות" },
+          "knowsAbout": ["ייעוץ ארגוני", "ייעוץ ארגוני חינוכי", "ניהול מוסדות חינוך", "חינוך חברתי-ערכי", "חינוך בלתי פורמלי", "מדיניות ציבורית", "החברה החרדית"],
+          "telephone": "+972-54-340-7902",
+          "email": "mailto:Shneori770@gmail.com"
         },
-        "query-input": "required name=search_term_string"
-      }
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://lehanech.co.il/#service",
+          "name": "שניאור רוכברגר – ייעוץ ארגוני חינוכי",
+          "url": "https://lehanech.co.il/",
+          "image": "https://lehanech.co.il/images/shneor.jpg",
+          "description": "ייעוץ וליווי ארגוני למוסדות חינוך, עמותות וארגונים בציבור החרדי: ליווי הנהלות ומנהלים, פיתוח צוותים, תכנון אסטרטגי וחינוך חברתי-ערכי.",
+          "telephone": "+972-54-340-7902",
+          "areaServed": { "@type": "Country", "name": "ישראל" },
+          "founder": { "@id": "https://lehanech.co.il/#person" },
+          "serviceType": ["ייעוץ ארגוני", "ליווי מנהלים", "פיתוח צוותי חינוך", "תכנון אסטרטגי", "הרצאות וסדנאות"],
+          "knowsLanguage": "he"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://lehanech.co.il/#website",
+          "name": "שניאור רוכברגר – ייעוץ ארגוני חינוכי",
+          "url": "https://lehanech.co.il/",
+          "inLanguage": "he",
+          "publisher": { "@id": "https://lehanech.co.il/#person" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "מה עושה יועץ ארגוני במוסד חינוכי?", "acceptedAnswer": { "@type": "Answer", "text": "יועץ ארגוני עוזר להנהלה לראות את התמונה המלאה של המוסד: איך מתקבלות החלטות, איך הצוות עובד יחד, איפה נתקעים ומה צריך כדי להתקדם. יחד בונים תוכנית עבודה ומלווים את היישום שלה בשטח." } },
+            { "@type": "Question", "name": "האם הליווי מותאם למוסדות בציבור החרדי?", "acceptedAnswer": { "@type": "Answer", "text": "כן, זה לב העבודה. שניאור, בוגר ישיבות חב\"ד, עובד שנים עם מוסדות ומסגרות בציבור החרדי, ולכן הליווי נבנה בשפה, בקצב ובערכים של המוסד ובתיאום עם ההנהגה שלו." } },
+            { "@type": "Question", "name": "מי יכול לפנות?", "acceptedAnswer": { "@type": "Answer", "text": "מנהלים ומנהלות של מוסדות חינוך, הנהלות של עמותות וארגונים, רכזים ובעלי תפקידים, וגם מחלקות חינוך ברשויות שעובדות מול הציבור החרדי." } },
+            { "@type": "Question", "name": "איך מתחיל תהליך?", "acceptedAnswer": { "@type": "Answer", "text": "בשיחת היכרות ללא התחייבות. בשיחה מבינים מה האתגר, מה כבר נוסה ומה המטרה, ועל בסיס זה מציעים מסגרת ליווי שמתאימה למוסד." } },
+            { "@type": "Question", "name": "אפשר להזמין רק הרצאה או השתלמות לצוות?", "acceptedAnswer": { "@type": "Answer", "text": "בהחלט. אפשר להזמין הרצאה או סדנה בודדת לצוות, להנהלה או להורים, ואפשר לשלב אותה כחלק מתהליך ליווי רחב יותר." } }
+          ]
+        }
+      ]
     }
     </script>
 
     <script src="blog-data.js?v=3"></script>
-    <script src="podcast-data.js?v=5"></script>
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=20261118"></script>
 </body>
 </html>

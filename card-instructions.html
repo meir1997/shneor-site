@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הנחיות לשימוש בקלפי שיח | שניאור רוכברגר</title>
+    <meta name="robots" content="noindex, follow">
     <meta name="description" content="הנחיות לשימוש בקלפי שיח: ערכים, מיומנויות ומנהיגות לשלושת עוגני החינוך היהודי.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20261118">
     <link rel="stylesheet" href="card-instructions.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="a11y.css?v=1">
@@ -15,20 +16,22 @@
 </head>
 <body class="instructions-page">
     <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="ניווט ראשי">
         <div class="nav-container">
-            <a href="index.html" class="logo" aria-label="שניאור רוכברגר - דף הבית">
-                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="10" y1="5" x2="10" y2="17"/></svg>
-                <span>שניאור רוכברגר</span>
+            <a href="index.html" class="logo" aria-label="שניאור רוכברגר – דף הבית">
+                <span class="logo-mark" aria-hidden="true">ש״ר</span>
+                <span class="logo-text">
+                    <span class="logo-name">שניאור רוכברגר</span>
+                    <span class="logo-role">ייעוץ ארגוני · חינוך</span>
+                </span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="תפריט">&#9776;</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="תפריט" aria-controls="navLinks">&#9776;</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">בית</a></li>
+                <li><a href="index.html#services">תחומי ייעוץ</a></li>
+                <li><a href="index.html#about">אודות</a></li>
                 <li><a href="blog.html">בלוג</a></li>
                 <li><a href="podcast.html">פודקאסט</a></li>
-                <li><a href="videos.html">סרטונים</a></li>
-                <li><a href="index.html#shop" class="active">קלפי שיח</a></li>
-                <li><a href="index.html#contact">צור קשר</a></li>
+                <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">לתיאום שיחה</a></li>
             </ul>
         </div>
     </nav>
@@ -96,10 +99,87 @@
 
             <p class="instructions-closing">בברכת הצלחה רבה בעבודת הקודש החינוכית,<br>שניאור</p>
             <p class="instructions-footer">מתוך ערכת קלפי שיח: ערכים &bull; מיומנויות &bull; מנהיגות</p>
-            <div class="instructions-action"><a href="index.html#shop" class="btn btn-primary">חזרה לקלפי השיח</a></div>
+            <section class="cards-order" id="order" aria-labelledby="order-title">
+                <h2 id="order-title" class="section-title">ערכות קלפי שיח</h2>
+                <p class="section-subtitle">להזמנת ערכה פנו בוואטסאפ ונחזור אליכם עם פרטי משלוח.</p>
+                <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-badge bestseller">הנמכר ביותר</div>
+                    <div class="product-image">
+                        <img src="images/echad-mishelanu.jpg" alt="אחד משלנו">
+                    </div>
+                    <div class="product-info">
+                        <h3>אחד משלנו</h3>
+                        <p>קלפי שיח לחיזוק הקשר והשייכות בקהילה</p>
+                        <div class="product-price">
+                            <span class="price-sale">200 &#8362;</span>
+                            <span class="price-original">250 &#8362;</span>
+                        </div>
+                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%90%D7%97%D7%93%20%D7%9E%D7%A9%D7%9C%D7%A0%D7%95%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            הזמנה
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/siah-zugiot.jpg" alt="שיח לזוגיות">
+                    </div>
+                    <div class="product-info">
+                        <h3>שיח לזוגיות</h3>
+                        <p>קלפים לחיזוק התקשורת הזוגית ויצירת רגעי קירבה</p>
+                        <div class="product-price">
+                            <span class="price-sale">200 &#8362;</span>
+                            <span class="price-original">250 &#8362;</span>
+                        </div>
+                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A9%D7%99%D7%97%20%D7%9C%D7%96%D7%95%D7%92%D7%99%D7%95%D7%AA%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            הזמנה
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/siah-arachim.jpg" alt="שיח לערכים">
+                    </div>
+                    <div class="product-info">
+                        <h3>שיח לערכים</h3>
+                        <p>קלפים לשיח ערכי מעמיק סביב שולחן השבת ובאירועים</p>
+                        <div class="product-price">
+                            <span class="price-sale">200 &#8362;</span>
+                            <span class="price-original">250 &#8362;</span>
+                        </div>
+                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A9%D7%99%D7%97%20%D7%9C%D7%A2%D7%A8%D7%9B%D7%99%D7%9D%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            הזמנה
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/klafei-chosen.jpg" alt="קלפי חוסן">
+                    </div>
+                    <div class="product-info">
+                        <h3>קלפי חוסן</h3>
+                        <p>כלי לחיזוק החוסן הנפשי והרגשי בקרב ילדים ומתבגרים</p>
+                        <div class="product-price">
+                            <span class="price-sale">200 &#8362;</span>
+                            <span class="price-original">250 &#8362;</span>
+                        </div>
+                        <a href="https://wa.me/972543407902?text=%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A8%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%94%D7%A7%D7%9C%D7%A4%D7%99%D7%9D%20%D7%9E%D7%A1%D7%95%D7%92%20%D7%A7%D7%9C%D7%A4%D7%99%20%D7%97%D7%95%D7%A1%D7%9F%2C%20%D7%AA%D7%95%D7%93%D7%94!" target="_blank" rel="noopener" class="btn btn-primary btn-small btn-whatsapp">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            הזמנה
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </section>
         </div>
     </main>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=20261118"></script>
 </body>
 </html>

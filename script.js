@@ -244,27 +244,13 @@ document.querySelectorAll('.section').forEach(section => {
 let galleryExpanded = false;
 function toggleGallery() {
     galleryExpanded = !galleryExpanded;
-    const allItems = document.querySelectorAll('.gallery-item');
     const btn = document.getElementById('galleryToggle');
-
-    allItems.forEach((el, i) => {
-        if (i >= 6) {
-            if (galleryExpanded) {
-                el.style.display = 'block';
-                el.style.animation = `fadeInUp 0.4s ease ${(i - 6) * 35}ms backwards`;
-            } else {
-                el.style.display = 'none';
-                el.style.animation = '';
-            }
-        }
+    document.querySelectorAll('.gallery-item.gallery-hidden').forEach((el, i) => {
+        el.style.display = galleryExpanded ? 'block' : '';
+        el.style.animation = galleryExpanded ? `fadeInUp 0.4s ease ${i * 35}ms backwards` : '';
     });
-
-    if (galleryExpanded) {
-        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> הסתר תמונות`;
-    } else {
-        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> לכל התמונות`;
-        document.getElementById('social')?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
+    btn.textContent = galleryExpanded ? 'הסתרת התמונות' : 'לכל התמונות';
+    if (!galleryExpanded) document.getElementById('galleryGrid')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // Gallery lightbox – use event delegation so it works for dynamically shown images
@@ -350,6 +336,7 @@ async function submitContactForm(e) {
     const name    = document.getElementById('contactName').value.trim();
     const phone   = document.getElementById('contactPhone').value.trim();
     const email   = document.getElementById('contactEmail').value.trim();
+    const org     = document.getElementById('contactOrg')?.value.trim() || '';
     const subject = document.getElementById('contactSubject');
     const subjectText = subject.options[subject.selectedIndex].text;
     const message = document.getElementById('contactMessage').value.trim();
@@ -359,14 +346,15 @@ async function submitContactForm(e) {
 
     const payload = {
         access_key: 'WEB3FORMS_ACCESS_KEY',
-        subject: 'פנייה חדשה מהאתר – ' + (subjectText !== 'בחר נושא...' ? subjectText : 'כללי'),
+        subject: 'פנייה חדשה מהאתר – ' + (subjectText !== 'בחרו נושא...' ? subjectText : 'כללי'),
         from_name: name,
         replyto: email || undefined,
         message: [
             'שם: ' + name,
+            org     ? 'מוסד / ארגון: ' + org : '',
             phone   ? 'טלפון: ' + phone   : '',
             email   ? 'אימייל: ' + email   : '',
-            'נושא: ' + (subjectText !== 'בחר נושא...' ? subjectText : 'כללי'),
+            'נושא: ' + (subjectText !== 'בחרו נושא...' ? subjectText : 'כללי'),
             '',
             message
         ].filter(Boolean).join('\n')
@@ -397,8 +385,8 @@ async function submitContactForm(e) {
         console.error('Form error:', err);
         // Fallback to WhatsApp if email fails
         const waText = encodeURIComponent(
-            `שלום שניאור, שמי ${name}${phone ? ', מספרי ' + phone : ''}.\n` +
-            `נושא: ${subjectText !== 'בחר נושא...' ? subjectText : 'פנייה כללית'}\n\n${message}`
+            `שלום שניאור, שמי ${name}${org ? ' (' + org + ')' : ''}${phone ? ', מספרי ' + phone : ''}.\n` +
+            `נושא: ${subjectText !== 'בחרו נושא...' ? subjectText : 'פנייה כללית'}\n\n${message}`
         );
         window.open(`https://wa.me/972543407902?text=${waText}`, '_blank');
         btn.disabled = false;

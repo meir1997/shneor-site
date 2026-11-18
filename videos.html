@@ -10,33 +10,30 @@
     <meta property="og:description" content="קטעי וידאו קצרים מהשטח החינוכי.">
     <meta property="og:url" content="https://lehanech.co.il/videos.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20261118">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="a11y.css?v=1">
     <script src="a11y-widget.js?v=1" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="ניווט ראשי">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    <line x1="10" y1="5" x2="10" y2="17"/>
-                </svg>
-                <span>שניאור רוכברגר</span>
+            <a href="index.html" class="logo" aria-label="שניאור רוכברגר – דף הבית">
+                <span class="logo-mark" aria-hidden="true">ש״ר</span>
+                <span class="logo-text">
+                    <span class="logo-name">שניאור רוכברגר</span>
+                    <span class="logo-role">ייעוץ ארגוני · חינוך</span>
+                </span>
             </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="תפריט">&#9776;</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="תפריט" aria-controls="navLinks">&#9776;</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html#home">בית</a></li>
+                <li><a href="index.html#services">תחומי ייעוץ</a></li>
                 <li><a href="index.html#about">אודות</a></li>
                 <li><a href="blog.html">בלוג</a></li>
                 <li><a href="podcast.html">פודקאסט</a></li>
-                <li><a href="videos.html" class="active">סרטונים</a></li>
-                <li><a href="index.html#shop">קלפי שיח</a></li>
-                <li><a href="index.html#contact">צור קשר</a></li>
+                <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">לתיאום שיחה</a></li>
             </ul>
         </div>
     </nav>
@@ -127,15 +124,15 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>שניאור רוכברגר</h3>
-                    <p>חינוך, שיח וערכים</p>
+                    <p>ייעוץ ארגוני וחינוכי למוסדות וארגונים בציבור החרדי</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html#home">בית</a>
+                    <a href="index.html#services">תחומי ייעוץ</a>
                     <a href="index.html#about">אודות</a>
                     <a href="blog.html">בלוג</a>
                     <a href="podcast.html">פודקאסט</a>
                     <a href="videos.html">סרטונים</a>
-                    <a href="index.html#shop">קלפי שיח</a>
+                    <a href="index.html#contact">צור קשר</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -144,6 +141,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=20261118"></script>
 </body>
 </html>

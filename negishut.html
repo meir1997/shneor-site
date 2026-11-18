@@ -8,8 +8,8 @@
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20261118">
     <style>
         .a11y-page{max-width:800px;margin:0 auto;padding:120px 24px 80px;line-height:1.9}
         .a11y-page h1{font-size:2rem;margin-bottom:12px}
@@ -25,14 +25,22 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="ניווט ראשי">
         <div class="nav-container">
-            <a href="index.html" class="logo"><span>שניאור רוכברגר</span></a>
-            <ul class="nav-links">
-                <li><a href="index.html#home">בית</a></li>
+            <a href="index.html" class="logo" aria-label="שניאור רוכברגר – דף הבית">
+                <span class="logo-mark" aria-hidden="true">ש״ר</span>
+                <span class="logo-text">
+                    <span class="logo-name">שניאור רוכברגר</span>
+                    <span class="logo-role">ייעוץ ארגוני · חינוך</span>
+                </span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="תפריט" aria-controls="navLinks">&#9776;</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#services">תחומי ייעוץ</a></li>
                 <li><a href="index.html#about">אודות</a></li>
-                <li><a href="index.html#blog">בלוג</a></li>
-                <li><a href="index.html#contact">צור קשר</a></li>
+                <li><a href="blog.html">בלוג</a></li>
+                <li><a href="podcast.html">פודקאסט</a></li>
+                <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">לתיאום שיחה</a></li>
             </ul>
         </div>
     </nav>
@@ -80,5 +88,8 @@
             </div>
         </div>
     </footer>
+    <script>
+    document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    </script>
 </body>
 </html>
