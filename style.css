@@ -1298,6 +1298,7 @@ h1, h2, h3, .section-title, .blog-card h3, .blog-modal-content h2, .footer-brand
 }
 @media (max-width: 680px) {
     .home .hero { min-height: 640px; }
+    .hero-media img { object-position: 60% center; }
     .hero-media::after { background: linear-gradient(0deg, rgba(18,28,41,0.95) 0%, rgba(18,28,41,0.82) 55%, rgba(18,28,41,0.35) 100%); }
     .hero-inner { padding-top: 140px; padding-bottom: 56px; }
     .home .hero-buttons .btn { flex: 1 1 100%; }
@@ -1315,3 +1316,9 @@ h1, h2, h3, .section-title, .blog-card h3, .blog-modal-content h2, .footer-brand
 .about-image { position: relative; top: auto; }
 .clients-photo img { aspect-ratio: auto; height: 480px; border-radius: 240px 240px var(--radius-lg) var(--radius-lg); }
 @media (max-width: 680px) { .clients-photo img { height: 340px; border-radius: 170px 170px var(--radius-lg) var(--radius-lg); } }
+.statement { margin: 0; }
+.statement blockquote { margin: 0; }
+.statement figcaption { grid-column: 1 / -1; color: var(--text-muted); font-size: 1rem; margin-top: -24px; }
+.statement-source { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); font-weight: 700; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.statement-source:hover { color: var(--accent-dark); }
+.statement-section { padding: 100px 0; }
