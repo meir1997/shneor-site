@@ -1205,7 +1205,7 @@ h1, h2, h3, .section-title, .blog-card h3, .blog-modal-content h2, .footer-brand
 .about-section { background: #fff; }
 .about-grid { display: grid; grid-template-columns: 0.8fr 1.4fr; gap: 72px; align-items: center; }
 .about-image { position: relative; }
-.about-photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 30%; border-radius: 999px 999px var(--radius-lg) var(--radius-lg); box-shadow: none; display: block; }
+.about-photo { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: 999px 999px var(--radius-lg) var(--radius-lg); border: 0; box-shadow: none; display: block; }
 .about-image::after { content: ''; position: absolute; width: 90px; height: 90px; border-radius: 50%; background: var(--teal); inset-inline-start: -14px; bottom: 36px; z-index: -1; }
 .about-lead { font-size: 1.3rem; line-height: 1.6; color: var(--primary); font-weight: 600; margin-bottom: 18px; }
 .about-text p { color: var(--text-light); margin-bottom: 14px; }
