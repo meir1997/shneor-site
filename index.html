@@ -14,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="he_IL">
     <meta property="og:url" content="https://lehanech.co.il/">
-    <meta property="og:image" content="https://lehanech.co.il/images/shneor.jpg">
+    <meta property="og:image" content="https://lehanech.co.il/images/social/photo_18_2026-05-01_15-30-47.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="שניאור רוכברגר | יועץ ארגוני חינוכי בציבור החרדי">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20261118">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20261118c">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="a11y.css?v=1">
     <script src="a11y-widget.js?v=1" defer></script>
@@ -52,33 +52,34 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
-        <div class="container hero-grid">
+        <div class="hero-media" aria-hidden="true">
+            <img src="images/social/photo_18_2026-05-01_15-30-47.jpg" alt="" width="1280" height="960" fetchpriority="high">
+        </div>
+        <div class="container hero-inner">
             <div class="hero-copy">
-                <p class="eyebrow eyebrow-light">ייעוץ ארגוני · מוסדות חינוך · ציבור חרדי</p>
-                <h1>ייעוץ ארגוני למוסדות חינוך<br><span>ולארגונים בציבור החרדי</span></h1>
-                <p class="hero-lead">שניאור רוכברגר מלווה הנהלות, מנהלים וצוותים בבניית ארגון חינוכי יציב, ממוקד ובעל השפעה. ליווי שמחבר כלים מקצועיים מעולם הייעוץ והמדיניות עם היכרות עמוקה עם החברה החרדית מבפנים.</p>
+                <span class="hero-name">שניאור רוכברגר · ייעוץ ארגוני וחינוכי</span>
+                <h1>ארגון חינוכי חזק נבנה מבפנים</h1>
+                <p class="hero-lead">ליווי הנהלות, מנהלים וצוותים במוסדות חינוך ובארגונים בציבור החרדי – עם כלים מעולם הייעוץ והמדיניות, ובשפה של הקהילה.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">לתיאום שיחת היכרות</a>
+                    <a href="#contact" class="btn btn-primary">לתיאום שיחת היכרות <span class="arrow" aria-hidden="true">←</span></a>
                     <a href="#services" class="btn btn-ghost">תחומי הייעוץ</a>
                 </div>
             </div>
-            <figure class="hero-portrait">
-                <img src="images/shneor.jpg" alt="שניאור רוכברגר, יועץ ארגוני חינוכי" width="512" height="512" fetchpriority="high">
-                <figcaption>
-                    <strong>שניאור זלמן רוכברגר</strong>
-                    <span>יועץ ארגוני · מרצה למדיניות ציבורית</span>
-                </figcaption>
-            </figure>
         </div>
-        <div class="credentials">
-            <div class="container credentials-inner">
-                <span class="credentials-label">רקע מקצועי</span>
-                <ul>
-                    <li>בוגר מכון מנדל למנהיגות</li>
-                    <li>ממונה חינוך חברתי-ערכי, משרד החינוך</li>
-                    <li>מרצה לתואר שני, אוניברסיטת חיפה</li>
-                    <li>מרצה במכללות אורנים, שאנן והרצוג</li>
-                </ul>
+    </section>
+
+    <!-- Statement + proof -->
+    <section class="statement-section" aria-label="במספרים">
+        <div class="container">
+            <div class="statement">
+                <p>כשההנהלה ברורה, הצוות מחובר והקהילה מרגישה שייכת – <em>המוסד פנוי לעשות את מה שהוא קיים בשבילו: לחנך.</em></p>
+                <svg class="arches" viewBox="0 0 150 150" aria-hidden="true"><path d="M5 150V80a70 70 0 0 1 140 0v70z" fill="#1b2a3d"/><path d="M30 150V84a45 45 0 0 1 90 0v66z" fill="#c4501d"/><path d="M55 150V90a20 20 0 0 1 40 0v60z" fill="#0f6e6a"/></svg>
+            </div>
+            <div class="proof">
+                <div class="proof-item"><strong>7,000+</strong><span>משתתפים בקורסים ובהכשרות בעשור האחרון</span></div>
+                <div class="proof-item"><strong id="blogCount">90+</strong><span>טורים על חינוך, הורות והנהגה</span></div>
+                <div class="proof-item"><strong>4</strong><span>מוסדות אקדמיים שבהם הוא מרצה</span></div>
+                <div class="proof-item"><strong>מנדל</strong><span>בוגר מכון מנדל למנהיגות</span></div>
             </div>
         </div>
     </section>
@@ -87,41 +88,40 @@
     <section id="services" class="section services-section">
         <div class="container">
             <div class="section-head">
-                <p class="eyebrow">תחומי ייעוץ</p>
-                <h2 class="section-title">ליווי מקצועי לארגון החינוכי שלכם</h2>
+                <span class="kicker">תחומי ייעוץ</span>
+                <h2 class="section-title">במה אפשר לעזור לארגון שלכם</h2>
                 <p class="section-subtitle">כל תהליך נבנה סביב האתגר האמיתי של המוסד – לא סביב תבנית מוכנה מראש.</p>
             </div>
-
             <div class="services-grid">
                 <article class="service-card">
-                    <span class="service-num">01</span>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></span>
                     <h3>ייעוץ ארגוני למוסדות חינוך</h3>
-                    <p>אבחון ארגוני, הגדרת חזון ויעדים, בניית תוכנית עבודה ומבנה ארגוני שמאפשר לצוות לעבוד בתיאום ולהתמקד במה שחשוב.</p>
+                    <p>אבחון ארגוני, חזון ויעדים, תוכנית עבודה ומבנה ארגוני שמאפשר לצוות לעבוד בתיאום ולהתמקד במה שחשוב.</p>
                 </article>
                 <article class="service-card">
-                    <span class="service-num">02</span>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/></svg></span>
                     <h3>ליווי מנהלים והנהלות</h3>
-                    <p>ליווי אישי למנהלים, רכזים ובעלי תפקידים: קבלת החלטות, ניהול צוות, התמודדות עם משברים והובלת שינוי מתוך יציבות.</p>
+                    <p>ליווי אישי למנהלים, רכזים ובעלי תפקידים: קבלת החלטות, ניהול צוות, משברים והובלת שינוי מתוך יציבות.</p>
                 </article>
                 <article class="service-card">
-                    <span class="service-num">03</span>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20v-1a6 6 0 0 1 12 0v1M14 20v-.5a4.5 4.5 0 0 1 8 0v.5"/></svg></span>
                     <h3>פיתוח צוותים והכשרות</h3>
-                    <p>השתלמויות ותהליכי למידה לצוותי הוראה וחינוך – חיזוק המוטיבציה, תקשורת בצוות ושפה חינוכית משותפת.</p>
+                    <p>השתלמויות ותהליכי למידה לצוותי הוראה וחינוך – מוטיבציה, תקשורת בצוות ושפה חינוכית משותפת.</p>
                 </article>
                 <article class="service-card">
-                    <span class="service-num">04</span>
-                    <h3>חינוך חברתי-ערכי ואקלים מוסדי</h3>
-                    <p>בניית תוכניות חינוך חברתי, שיפור האקלים במוסד וחיזוק השייכות של תלמידים, הורים וצוות – בשפה ובערכים של הקהילה.</p>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+                    <h3>חינוך חברתי-ערכי ואקלים</h3>
+                    <p>תוכניות חינוך חברתי, אקלים מוסדי ושייכות של תלמידים, הורים וצוות – בשפה ובערכים של הקהילה.</p>
                 </article>
                 <article class="service-card">
-                    <span class="service-num">05</span>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
                     <h3>תכנון אסטרטגי ומדיניות</h3>
-                    <p>ליווי עמותות, ארגונים ומחלקות חינוך בתכנון אסטרטגי, בניית מדיניות ותוכניות רב-שנתיות, מתוך ניסיון בעבודה מול גופים ציבוריים.</p>
+                    <p>תכנון אסטרטגי ותוכניות רב-שנתיות לעמותות, ארגונים ומחלקות חינוך, מתוך ניסיון בעבודה מול גופים ציבוריים.</p>
                 </article>
                 <article class="service-card">
-                    <span class="service-num">06</span>
+                    <span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
                     <h3>הרצאות וסדנאות</h3>
-                    <p>הרצאות לצוותים, להנהלות ולהורים בנושאי חינוך, הורות, ניהול חינוכי וחינוך חברתי – כמפגש בודד או כחלק מתהליך.</p>
+                    <p>הרצאות לצוותים, להנהלות ולהורים בנושאי חינוך, הורות וניהול חינוכי – כמפגש בודד או כחלק מתהליך.</p>
                 </article>
             </div>
         </div>
@@ -130,19 +130,22 @@
     <!-- Who -->
     <section id="clients" class="section clients-section">
         <div class="container clients-grid">
-            <div>
-                <p class="eyebrow">למי זה מתאים</p>
-                <h2 class="section-title align-start">יועץ ארגוני שמכיר את העולם החרדי מבפנים</h2>
-                <p class="clients-lead">מוסד חינוכי בציבור החרדי פועל בתוך מערכת ייחודית של ערכים, הנהגה רוחנית, הורים וקהילה. ייעוץ שלא מכיר את כל אלה מתקשה להחזיק בשטח. הליווי בנוי כך שיתאים לשפה, לקצב ולערכים של המוסד.</p>
+            <div class="clients-photo">
+                <img src="images/social/photo_23_2026-05-01_15-30-47.jpg" alt="צוות חינוכי בסדנת עבודה סביב שולחן" width="1280" height="960" loading="lazy">
             </div>
-            <ul class="clients-list">
-                <li>תלמודי תורה ובתי ספר</li>
-                <li>סמינרים ומוסדות חינוך לבנות</li>
-                <li>ישיבות ומסגרות לנוער</li>
-                <li>עמותות וארגונים חברתיים</li>
-                <li>מסגרות חינוך בלתי פורמלי</li>
-                <li>רשויות ומחלקות חינוך</li>
-            </ul>
+            <div>
+                <span class="kicker">למי זה מתאים</span>
+                <h2 class="section-title align-start">מכיר את העולם החרדי מבפנים</h2>
+                <p class="clients-lead">מוסד חינוכי בציבור החרדי פועל בתוך מערכת ייחודית של ערכים, הנהגה רוחנית, הורים וקהילה. ייעוץ שלא מכיר את כל אלה מתקשה להחזיק בשטח – ולכן הליווי נבנה בשפה, בקצב ובערכים של המוסד.</p>
+                <ul class="clients-list">
+                    <li>תלמודי תורה ובתי ספר</li>
+                    <li>סמינרים ומוסדות לבנות</li>
+                    <li>ישיבות ומסגרות לנוער</li>
+                    <li>עמותות וארגונים חברתיים</li>
+                    <li>חינוך בלתי פורמלי</li>
+                    <li>רשויות ומחלקות חינוך</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -150,31 +153,15 @@
     <section id="approach" class="section approach-section">
         <div class="container">
             <div class="section-head">
-                <p class="eyebrow eyebrow-light">שיטת העבודה</p>
+                <span class="kicker kicker-light">שיטת העבודה</span>
                 <h2 class="section-title">מאבחון ועד הטמעה בשטח</h2>
-                <p class="section-subtitle">תהליך מסודר, עם יעדים ברורים ומדדים להצלחה, שנשאר בארגון גם אחרי שהליווי מסתיים.</p>
+                <p class="section-subtitle">תהליך מסודר עם יעדים ברורים, שנשאר בארגון גם אחרי שהליווי מסתיים.</p>
             </div>
             <ol class="process">
-                <li>
-                    <span class="process-step">שלב 1</span>
-                    <h3>היכרות ואבחון</h3>
-                    <p>שיחות עם ההנהלה והצוות, מיפוי של נקודות החוזק ושל האתגרים, והגדרה משותפת של מה רוצים לשנות.</p>
-                </li>
-                <li>
-                    <span class="process-step">שלב 2</span>
-                    <h3>תכנון</h3>
-                    <p>בניית תוכנית עבודה ממוקדת: יעדים, אחריות, לוחות זמנים ומדדים שאפשר לעקוב אחריהם.</p>
-                </li>
-                <li>
-                    <span class="process-step">שלב 3</span>
-                    <h3>ליווי ויישום</h3>
-                    <p>מפגשי ליווי קבועים עם ההנהלה והצוותים, הנחיית תהליכים, השתלמויות ופתרון בעיות בזמן אמת.</p>
-                </li>
-                <li>
-                    <span class="process-step">שלב 4</span>
-                    <h3>הערכה והטמעה</h3>
-                    <p>בדיקת התוצאות מול היעדים, חיזוק מה שעובד והעברת הכלים לידי הצוות, כדי שהשינוי יימשך.</p>
-                </li>
+                <li><span class="process-step">1</span><h3>היכרות ואבחון</h3><p>שיחות עם ההנהלה והצוות, מיפוי החוזקות והאתגרים, והגדרה משותפת של מה רוצים לשנות.</p></li>
+                <li><span class="process-step">2</span><h3>תכנון</h3><p>תוכנית עבודה ממוקדת: יעדים, אחריות, לוחות זמנים ומדדים שאפשר לעקוב אחריהם.</p></li>
+                <li><span class="process-step">3</span><h3>ליווי ויישום</h3><p>מפגשי ליווי קבועים, הנחיית תהליכים, השתלמויות ופתרון בעיות בזמן אמת.</p></li>
+                <li><span class="process-step">4</span><h3>הערכה והטמעה</h3><p>בדיקת התוצאות מול היעדים והעברת הכלים לידי הצוות, כדי שהשינוי יימשך.</p></li>
             </ol>
         </div>
     </section>
@@ -186,54 +173,37 @@
                 <img src="images/shneor.jpg" alt="שניאור רוכברגר" class="about-photo" width="512" height="512" loading="lazy">
             </div>
             <div class="about-text">
-                <p class="eyebrow">אודות</p>
+                <span class="kicker">אודות</span>
                 <h2 class="section-title align-start">שניאור זלמן רוכברגר</h2>
                 <p class="about-lead">יועץ ארגוני וחינוכי, חוקר ומרצה, שפועל שנים בחיבור שבין מערכות חינוך, מדיניות ציבורית והחברה החרדית.</p>
                 <p>בוגר ישיבות חב"ד ומכון מנדל למנהיגות. ממונה על החינוך החברתי-ערכי במחוז החרדי במשרד החינוך, ומלווה מוסדות, מנהלים וצוותים בבניית תוכניות חינוכיות ובהובלת שינוי.</p>
                 <p>מרצה לתואר שני במדיניות ציבורית באוניברסיטת חיפה וכן במכללות אורנים, שאנן והרצוג. חוקר המתמחה בחינוך בלתי-פורמלי בציבור החרדי ובמוטיבציה של מורות חרדיות.</p>
-
-                <dl class="stats">
-                    <div class="stat">
-                        <dt>7,000+</dt>
-                        <dd>משתתפים בקורסים ובהכשרות בעשור האחרון</dd>
-                    </div>
-                    <div class="stat">
-                        <dt id="blogCount">90+</dt>
-                        <dd>טורים על חינוך, הורות והנהגה</dd>
-                    </div>
-                    <div class="stat">
-                        <dt>M.A.</dt>
-                        <dd>מרצה לתואר שני במדיניות ציבורית</dd>
-                    </div>
-                </dl>
+                <a href="#contact" class="btn btn-dark">בואו נדבר <span class="arrow" aria-hidden="true">←</span></a>
             </div>
         </div>
 
         <div class="container field">
             <div class="field-head">
                 <h3>מהשטח</h3>
-                <p>רגעים מהעשייה החינוכית</p>
+                <button class="btn-text" id="galleryToggle" type="button" onclick="toggleGallery()">לכל התמונות</button>
             </div>
             <div class="gallery-grid" id="galleryGrid">
-                <div class="gallery-item"><img src="images/social/2.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/social/4.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/social/6.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item"><img src="images/social/photo_8_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/photo_32_2026-05-01_15-30-47.jpg" alt="הרצאה בפני קהל" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/2.jpg" alt="שיחה בקבוצה קטנה" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/photo_14_2026-05-01_15-30-47.jpg" alt="עבודה משותפת סביב שולחן" loading="lazy"></div>
+                <div class="gallery-item"><img src="images/social/photo_8_2026-05-01_15-30-47.jpg" alt="מפגש קבוצתי" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/4.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/6.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_9_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_14_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_15_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_18_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_19_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_13_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_20_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_23_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_25_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_27_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_28_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
                 <div class="gallery-item gallery-hidden"><img src="images/social/photo_30_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-                <div class="gallery-item gallery-hidden"><img src="images/social/photo_32_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
-            </div>
-            <div class="gallery-actions">
-                <button class="btn btn-text" id="galleryToggle" type="button" onclick="toggleGallery()">לכל התמונות</button>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_34_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_37_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
+                <div class="gallery-item gallery-hidden"><img src="images/social/photo_15_2026-05-01_15-30-47.jpg" alt="פעילות חינוכית בשטח" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -241,18 +211,14 @@
     <!-- Knowledge -->
     <section id="knowledge" class="section knowledge-section">
         <div class="container">
-            <div class="section-head section-head-row">
+            <div class="section-head-row">
                 <div>
-                    <p class="eyebrow">מאמרים ותוכן</p>
+                    <span class="kicker kicker-light">מאמרים ותוכן</span>
                     <h2 class="section-title align-start">פשוט לחנך – טורים ומחשבות</h2>
                 </div>
                 <a href="blog.html" class="link-arrow">לכל הטורים</a>
             </div>
-
-            <div class="blog-grid" id="blogGrid" data-limit="3">
-                <!-- Blog posts inserted by JS -->
-            </div>
-
+            <div class="blog-grid" id="blogGrid" data-limit="3"></div>
             <div class="resources">
                 <a href="podcast.html" class="resource">
                     <span class="resource-kind">פודקאסט</span>
@@ -277,7 +243,7 @@
     <section id="faq" class="section faq-section">
         <div class="container faq-grid">
             <div>
-                <p class="eyebrow">שאלות נפוצות</p>
+                <span class="kicker">שאלות נפוצות</span>
                 <h2 class="section-title align-start">על ייעוץ ארגוני למוסדות חינוך</h2>
             </div>
             <div class="faq-list">
@@ -309,7 +275,7 @@
     <section id="contact" class="section contact-section">
         <div class="container contact-grid">
             <div class="contact-info">
-                <p class="eyebrow eyebrow-light">יצירת קשר</p>
+                <span class="kicker">יצירת קשר</span>
                 <h2>בואו נדבר על הארגון שלכם</h2>
                 <p>ספרו בכמה מילים על המוסד ועל מה שמעסיק אתכם, ונחזור אליכם לתיאום שיחת היכרות.</p>
 
@@ -373,7 +339,7 @@
                     <label for="contactMessage">במה נוכל לעזור?</label>
                     <textarea id="contactMessage" name="message" rows="4" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary form-submit">שליחת פנייה</button>
+                <button type="submit" class="btn btn-primary form-submit">שליחת פנייה <span class="arrow" aria-hidden="true">←</span></button>
                 <div class="form-success" id="formSuccess" style="display:none" role="status">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     הפנייה נשלחה. נחזור אליכם בהקדם.
