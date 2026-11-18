@@ -624,8 +624,8 @@ body {
 .shop-cta { text-align: center; }
 
 /* WhatsApp order button */
-.btn-whatsapp { background: #25d366 !important; border-color: #25d366 !important; box-shadow: 0 4px 14px rgba(37,211,102,0.3) !important; }
-.btn-whatsapp:hover { background: #1da851 !important; border-color: #1da851 !important; box-shadow: 0 8px 20px rgba(37,211,102,0.4) !important; }
+.btn-whatsapp { background: var(--teal) !important; border-color: var(--teal) !important; box-shadow: 0 4px 14px rgba(15,110,106,0.22) !important; }
+.btn-whatsapp:hover { background: #0b5552 !important; border-color: #0b5552 !important; box-shadow: 0 8px 20px rgba(15,110,106,0.28) !important; }
 
 /* Contact */
 .contact-section { background: var(--bg-alt); }
