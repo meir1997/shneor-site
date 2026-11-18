@@ -345,7 +345,7 @@ async function submitContactForm(e) {
     btn.style.opacity = '0.7';
 
     const payload = {
-        access_key: 'WEB3FORMS_ACCESS_KEY',
+        access_key: '06c3269b-64b3-4380-a302-05323ae785c6',
         subject: 'פנייה חדשה מהאתר – ' + (subjectText !== 'בחרו נושא...' ? subjectText : 'כללי'),
         from_name: name,
         replyto: email || undefined,
