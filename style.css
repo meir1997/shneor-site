@@ -1136,14 +1136,14 @@ h1, h2, h3, .section-title, .blog-card h3, .blog-modal-content h2, .footer-brand
     padding: 0; color: #fff; position: relative; overflow: hidden; background: var(--primary-dark);
 }
 .hero-media { position: absolute; inset: 0; }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.hero-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left 40%; }
 .hero-media::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(270deg, rgba(18,28,41,0.92) 0%, rgba(18,28,41,0.78) 42%, rgba(18,28,41,0.25) 75%, rgba(18,28,41,0.1) 100%),
-                linear-gradient(0deg, rgba(18,28,41,0.6) 0%, transparent 40%);
+    background: linear-gradient(to left, rgba(18,28,41,0.96), rgba(18,28,41,0.8) 43%, rgba(18,28,41,0.18) 70%, transparent 83%),
+                linear-gradient(to top, rgba(18,28,41,0.55), transparent 36%);
 }
 .hero-inner { position: relative; z-index: 1; width: 100%; padding-top: 160px; padding-bottom: 88px; }
-.hero-copy { max-width: 640px; }
+.hero-copy { max-width: min(640px, 58%); }
 .hero-name { font-weight: 700; font-size: 1.05rem; color: var(--accent-light); margin-bottom: 16px; display: block; }
 .home .hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.3rem); line-height: 1.08; margin-bottom: 22px; letter-spacing: 0; }
 .hero-lead { font-size: 1.22rem; line-height: 1.7; color: rgba(255,255,255,0.88); margin-bottom: 34px; max-width: 560px; }
@@ -1296,11 +1296,15 @@ h1, h2, h3, .section-title, .blog-card h3, .blog-modal-content h2, .footer-brand
     .statement { grid-template-columns: 1fr; }
     .statement .arches { display: none; }
 }
+@media (max-width: 760px) {
+    .home .hero { display: block; min-height: 0; padding-top: 78px; }
+    .hero-media { position: relative; aspect-ratio: 3 / 2; }
+    .hero-media img { object-position: left center; }
+    .hero-media::after { background: linear-gradient(to top, var(--primary-dark), transparent 32%); }
+    .hero-inner { padding-top: 14px; padding-bottom: 40px; }
+    .hero-copy { max-width: 560px; }
+}
 @media (max-width: 680px) {
-    .home .hero { min-height: 640px; }
-    .hero-media img { object-position: 60% center; }
-    .hero-media::after { background: linear-gradient(0deg, rgba(18,28,41,0.95) 0%, rgba(18,28,41,0.82) 55%, rgba(18,28,41,0.35) 100%); }
-    .hero-inner { padding-top: 140px; padding-bottom: 56px; }
     .home .hero-buttons .btn { flex: 1 1 100%; }
     .statement-section { padding: 72px 0 64px; }
     .proof { margin-top: 48px; gap: 28px 16px; }
